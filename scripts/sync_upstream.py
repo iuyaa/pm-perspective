@@ -22,7 +22,9 @@ SKILL = ROOT / "pm-workbench"
 
 
 def git(repo, *args):
-    return subprocess.check_output(["git", "-C", str(repo), *args])
+    return subprocess.check_output([
+        "git", "-c", "core.autocrlf=false", "-c", "core.eol=lf", "-C", str(repo), *args
+    ])
 
 
 def export_source(repo, commit, target):
