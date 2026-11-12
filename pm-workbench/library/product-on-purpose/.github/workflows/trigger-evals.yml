@@ -1,0 +1,178 @@
+name: Trigger evals (advisory, cost-gated)
+
+# M-31 (issue #200): the LLM-run trigger-accuracy lane. Advisory by definition and
+# NEVER part of the enforcing pre-tag bundle; the recording rule is the gate (the
+# accepted baseline report is committed under the release-plan records path).
+# Spec: docs/internal/release-plans/v2.27.0/spec_trigger-accuracy-evals.md section 5.
+#
+# THREE jobs:
+#  - router-evals: the TRUSTWORTHY instrument (controlled router eval; a direct
+#    Messages API call per query, no plugin environment). Diffs against the committed
+#    baseline and FAILS on a recall/precision regression - the drift gate (B-2).
+#  - collision-probe: the new-skill collision merge gate (B-3). Runs the router eval
+#    with a named new skill in the catalog and FAILS on theft (a neighbor's query
+#    routes to the new skill), a recall miss, or a precision false-fire. Dispatch with
+#    new_skill=<name>; the deterministic core is unit-tested in validation.yml.
+#  - trigger-evals: the legacy headless harness, kept as an integration check only.
+#    It was environment-confounded (see trigger-evals-explained.md "CORRECTION");
+#    do not trust its absolute numbers.
+# Cost note: a full roster run is ~1,740 API calls (~$1.20 on Haiku); dry_run
+# defaults to TRUE so a dispatch without explicit intent never spends tokens.
+
+on:
+  workflow_dispatch:
+    inputs:
+      skills:
+        description: 'Comma-separated skill filter (empty = full Phase 1 roster)'
+        required: false
+        type: string
+      new_skill:
+        description: 'B-3: run the new-skill collision probe for this single skill name (collision-probe job only)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Validate fixtures + print the run plan only; no API calls'
+        required: false
+        type: boolean
+        default: true
+      collision:
+        description: 'Also run the cross-skill collision false-fire sweep'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  router-evals:
+    # The trustworthy drift gate (B-2). Controlled router eval; diffs vs the committed
+    # baseline and fails on regression. No Claude Code CLI / plugin env needed.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node (pin from .nvmrc)
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Harness unit tests
+        run: node --test scripts/run-router-evals.test.mjs
+
+      - name: Dry-run plan
+        # `skills` arrives via a quoted env var (never interpolated into the command text)
+        # and the --skills flag is appended only when non-empty, so a dispatch value with
+        # shell metacharacters cannot inject runner commands.
+        env:
+          SKILLS: ${{ inputs.skills }}
+        run: |
+          extra=()
+          [ -n "$SKILLS" ] && extra=("--skills=$SKILLS")
+          node scripts/run-router-evals.mjs --dry-run "${extra[@]}"
+
+      - name: Run router eval + drift diff vs committed baseline
+        if: ${{ !inputs.dry_run }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SKILLS: ${{ inputs.skills }}
+        # Exit 4 on a recall/precision regression vs the committed Haiku baseline.
+        run: |
+          extra=()
+          [ -n "$SKILLS" ] && extra=("--skills=$SKILLS")
+          node scripts/run-router-evals.mjs --model=claude-haiku-4-5 --report=router-eval-report.md --baseline=docs/internal/release-plans/v2.27.0/records/router-eval-baseline-haiku.json "${extra[@]}"
+
+      - name: Upload report artifact
+        if: ${{ !inputs.dry_run && always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: router-eval-report
+          path: router-eval-report.md
+          if-no-files-found: ignore
+
+  collision-probe:
+    # B-3 new-skill collision merge gate. Runs only when a new_skill name is supplied.
+    # Asserts the new skill recalls its own queries, steals none from its neighbors, and
+    # does not false-fire on neighbor queries. Exit 5 on a collision.
+    runs-on: ubuntu-latest
+    if: ${{ inputs.new_skill != '' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node (pin from .nvmrc)
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Harness unit tests
+        run: node --test scripts/check-new-skill-collision.test.mjs
+
+      - name: Dry-run plan
+        # new_skill arrives via env and is shell-quoted - never interpolated into the
+        # command text - so a dispatch value with shell metacharacters cannot inject
+        # commands into the runner. The script's manifest membership check is the
+        # allowlist: only a real skill name proceeds past argument parsing.
+        env:
+          NEW_SKILL: ${{ inputs.new_skill }}
+        run: node scripts/check-new-skill-collision.mjs --skill="$NEW_SKILL" --dry-run
+
+      - name: Run collision probe
+        if: ${{ !inputs.dry_run }}
+        env:
+          NEW_SKILL: ${{ inputs.new_skill }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/check-new-skill-collision.mjs --skill="$NEW_SKILL" --model=claude-haiku-4-5
+
+  trigger-evals:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node (pin from .nvmrc)
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Validate fixtures (hard gate here, advisory in validation.yml)
+        # No point spending tokens on a malformed corpus: in THIS lane the
+        # structure validator fails the job.
+        run: node scripts/check-trigger-fixtures.mjs
+
+      - name: Harness unit tests
+        run: node --test scripts/run-trigger-evals.test.mjs
+
+      - name: Dry-run plan
+        # `skills` via a quoted env var (the boolean `collision` is a fixed literal, safe).
+        env:
+          SKILLS: ${{ inputs.skills }}
+        run: |
+          extra=()
+          [ -n "$SKILLS" ] && extra=(--skills "$SKILLS")
+          node scripts/run-trigger-evals.mjs --dry-run "${extra[@]}" ${{ inputs.collision && '--collision' || '' }}
+
+      - name: Install Claude Code CLI
+        if: ${{ !inputs.dry_run }}
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run trigger evals
+        if: ${{ !inputs.dry_run }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SKILLS: ${{ inputs.skills }}
+        # First live use should be a --probe on one skill to verify the transcript
+        # shape (spec risk note); the report artifact is the recording-rule input.
+        run: |
+          extra=()
+          [ -n "$SKILLS" ] && extra=(--skills "$SKILLS")
+          node scripts/run-trigger-evals.mjs --report trigger-eval-report.md "${extra[@]}" ${{ inputs.collision && '--collision' || '' }}
+
+      - name: Upload report artifact
+        if: ${{ !inputs.dry_run && always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: trigger-eval-report
+          path: trigger-eval-report.md
+          if-no-files-found: ignore

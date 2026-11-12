@@ -1,0 +1,53 @@
+# Skill Families Registry
+#
+# Authoritative listing of all skill families in pm-skills. Each family
+# declares its canonical contract document and member skills. The
+# validate-skill-family-registration script consumes this file to verify
+# structural integrity:
+#   - Contract file exists at the declared path
+#   - All declared members exist as directories in skills/
+#   - Each member's SKILL.md references the family contract path
+#
+# Adding a new family:
+#   1. Author the contract document at docs/reference/skill-families/<family>-contract.md
+#   2. Author the member skills under skills/<phase-or-classification>-<name>/
+#   3. Add an entry to this registry
+#   4. (Optional) Author a family-specific validator if the contract has rules
+#      beyond structural integrity (see validate-meeting-skills-family.sh as
+#      example)
+#
+# Family-specific contract rules (e.g., required template sections, filename
+# conventions, artifact_type enums) are NOT enforced by the generic validator.
+# They live in family-specific validators that complement this one.
+
+families:
+  meeting-skills:
+    contract: docs/reference/skill-families/meeting-skills-contract.md
+    members:
+      - foundation-meeting-agenda
+      - foundation-meeting-brief
+      - foundation-meeting-recap
+      - foundation-meeting-synthesize
+      - foundation-stakeholder-update
+
+  foundation-sprint-skills:
+    contract: docs/reference/skill-families/foundation-sprint-skills-contract.md
+    members:
+      - tool-foundation-sprint-readiness
+      - tool-foundation-sprint-brief
+      - tool-foundation-sprint-basics
+      - tool-foundation-sprint-differentiation
+      - tool-foundation-sprint-approach-options
+      - tool-foundation-sprint-magic-lenses
+      - tool-foundation-sprint-founding-hypothesis
+
+  design-sprint-skills:
+    contract: docs/reference/skill-families/design-sprint-skills-contract.md
+    members:
+      - tool-design-sprint-readiness
+      - tool-design-sprint-brief
+      - tool-design-sprint-map-and-target
+      - tool-design-sprint-sketch
+      - tool-design-sprint-decide-and-storyboard
+      - tool-design-sprint-prototype-plan
+      - tool-design-sprint-test-and-score

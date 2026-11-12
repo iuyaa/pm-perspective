@@ -1,0 +1,85 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Make build scripts executable
+        run: chmod +x scripts/build-release.sh scripts/sync-claude.sh
+
+      - name: Get version from tag
+        id: version
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Build release artifact
+        run: ./scripts/build-release.sh "$VERSION"
+
+      - name: Generate release notes
+        run: |
+          cat << 'EOF' > RELEASE_NOTES.md
+          ## What's Included
+
+          - **PM skills library** (flat `skills/{phase-skill}/` + foundation capabilities)
+          - **Sample output library** (`library/skill-output-samples/` with README and canonical sample corpus)
+          - **Slash commands** (10 `/workflow-*` orchestrators plus the `/chain` ad-hoc runner; every skill invocable by name)
+          - **Workflows** (Triple Diamond, Lean Startup, Feature Kickoff)
+          - **Claude plugin manifest** (`.claude-plugin/plugin.json`)
+          - **Claude/openskills discovery** via sync helper (`scripts/sync-claude.sh` / `.ps1`)
+          - **Docs:** README, QUICKSTART, AGENTS, reference guides
+
+          ## Download
+
+          **`pm-skills-v${{ steps.version.outputs.version }}.zip`** - Complete package for all platforms
+
+          ## Installation
+
+          ### Claude Code / openskills
+          1. Download `pm-skills-v${{ steps.version.outputs.version }}.zip`
+          2. Extract, then run:
+             - Bash: `./scripts/sync-claude.sh`
+             - PowerShell: `./scripts/sync-claude.ps1`
+          3. Claude Code / openskills will discover commands in `.claude/commands/` and skills in `.claude/skills/`.
+
+          ### Claude plugin clients
+          1. Download `pm-skills-v${{ steps.version.outputs.version }}.zip`
+          2. Extract the archive.
+          3. Point plugin setup to `.claude-plugin/plugin.json` from the extracted package.
+
+          ### Other editors/agents
+          - Use `skills/` and `commands/` directly from the extracted ZIP.
+
+          ## Quick Usage
+
+          ```
+          /pm-skills:deliver-prd "Your feature description"
+          /pm-skills:define-hypothesis "Your assumption to test"
+          /workflow-feature-kickoff "Feature name"
+          ```
+
+          See `QUICKSTART.md` in the archive for full instructions.
+          EOF
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          files: |
+            dist/pm-skills-v${{ steps.version.outputs.version }}.zip
+            dist/pm-skills-v${{ steps.version.outputs.version }}.zip.sha256
+            dist/manifest.txt
+          body_path: RELEASE_NOTES.md
+          draft: false
+          prerelease: false

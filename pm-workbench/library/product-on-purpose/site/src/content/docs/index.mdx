@@ -1,0 +1,321 @@
+---
+title: PM Skills
+description: 68 AI agent skills for product managers - open-source, spec-compliant, and ready for Claude Code, Cursor, GitHub Copilot, and more. Turn any AI assistant into a PM that ships professional PRDs, user stories, experiment designs, and workshop outputs on demand.
+tags:
+  - Home
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+**68 best-practice product management skills for AI agents.**
+
+PM Skills teaches AI assistants how to produce professional PM artifacts - PRDs, user stories, acceptance criteria, experiment designs, sprint outputs, and more. One command, consistent output, every time.
+
+## The Triple Diamond
+
+Skills are organized across 6 phases of the Triple Diamond framework - three diamonds covering the problem space, the solution space, and the learning space.
+
+```mermaid
+graph LR
+    subgraph "Problem Space"
+        D1["Discover<br/>5 skills"] --> D2["Define<br/>5 skills"]
+    end
+    subgraph "Solution Space"
+        D3["Develop<br/>4 skills"] --> D4["Deliver<br/>6 skills"]
+    end
+    subgraph "Learning Space"
+        D5["Measure<br/>6 skills"] --> D6["Iterate<br/>4 skills"]
+    end
+    D2 --> D3
+    D4 --> D5
+    D6 -.->|"next cycle"| D1
+
+    classDef discover fill:#e7f5ff,stroke:#1971c2,color:#0c2d5e,stroke-width:2px
+    classDef define fill:#e6fcf5,stroke:#0ca678,color:#0a4f3c,stroke-width:2px
+    classDef develop fill:#f3e8ff,stroke:#7048e8,color:#3a1d8a,stroke-width:2px
+    classDef deliver fill:#fff4e1,stroke:#d9480f,color:#5e2200,stroke-width:2px
+    classDef measure fill:#fff9db,stroke:#e8a317,color:#5e3e00,stroke-width:2px
+    classDef iterate fill:#ffe9ec,stroke:#c2255c,color:#5c0a25,stroke-width:2px
+
+    class D1 discover
+    class D2 define
+    class D3 develop
+    class D4 deliver
+    class D5 measure
+    class D6 iterate
+```
+
+[Learn about the Triple Diamond](concepts/triple-diamond-delivery-process.md)
+
+## The Skills
+
+{/* count-exempt:start - per-family subset counts; the total-count scan would misread them as stale totals. Each card's number IS enforced: check-landing-page-counts verifies every card against skills/<family>-* and requires the cards to sum to the catalog total. */}
+<CardGrid>
+  <Card title="Discover (5 skills)" icon="magnifier">
+    Research, competitive analysis, stakeholder mapping.
+
+    [Browse Discover](skills/discover/)
+  </Card>
+
+  <Card title="Define (5 skills)" icon="puzzle">
+    Problem framing, hypotheses, opportunity trees, JTBD.
+
+    [Browse Define](skills/define/)
+  </Card>
+
+  <Card title="Develop (4 skills)" icon="setting">
+    Solution briefs, ADRs, design rationale, spikes.
+
+    [Browse Develop](skills/develop/)
+  </Card>
+
+  <Card title="Deliver (6 skills)" icon="rocket">
+    PRDs, user stories, acceptance criteria, edge cases, launch, release notes.
+
+    [Browse Deliver](skills/deliver/)
+  </Card>
+
+  <Card title="Measure (6 skills)" icon="bars">
+    Experiments, instrumentation, dashboards, results, OKR grading.
+
+    [Browse Measure](skills/measure/)
+  </Card>
+
+  <Card title="Iterate (4 skills)" icon="random">
+    Retrospectives, lessons, refinement, pivot decisions.
+
+    [Browse Iterate](skills/iterate/)
+  </Card>
+
+  <Card title="Foundation (11 skills)" icon="open-book">
+    Cross-cutting skills: persona, OKR writer, lean canvas, meeting lifecycle, stakeholder update, stakeholder briefings, prioritized action plan, build risk review.
+
+    [Browse Foundation](skills/foundation/)
+  </Card>
+
+  <Card title="Utility (12 skills)" icon="pencil">
+    Create, validate, iterate skills, build and run multi-skill workflows, generate diagrams and presentations, and update the library.
+
+    [Browse Utility](skills/utility/)
+  </Card>
+
+  <Card title="Tool (15 skills)" icon="rocket">
+    Canonical sprint methodologies: Foundation Sprint (7) + Design Sprint (7) + tool-note-and-vote.
+
+    [Browse Tool](skills/tool/)
+  </Card>
+</CardGrid>
+{/* count-exempt:end */}
+
+## Skills by Phase
+
+Each box below is a skill you invoke by name. The six phases trace a product from first research through to post-launch learning, so you can pick the one that matches where your work is right now.
+
+```mermaid
+block-beta
+    columns 6
+
+    block:discover["Discover"]:1
+        d1["discover-competitive-analysis"]
+        d2["discover-interview-synthesis"]
+        d3["discover-stakeholder-summary"]
+        d4["discover-journey-map"]
+        d5["discover-market-sizing"]
+    end
+
+    block:define["Define"]:1
+        f1["define-problem-statement"]
+        f2["define-hypothesis"]
+        f3["define-opportunity-tree"]
+        f4["define-jtbd-canvas"]
+        f5["define-prioritization-framework"]
+    end
+
+    block:develop["Develop"]:1
+        v1["develop-solution-brief"]
+        v2["develop-spike-summary"]
+        v3["develop-adr"]
+        v4["develop-design-rationale"]
+    end
+
+    block:deliver["Deliver"]:1
+        l1["deliver-prd"]
+        l2["deliver-user-stories"]
+        l3["deliver-acceptance-criteria"]
+        l4["deliver-edge-cases"]
+        l5["deliver-launch-checklist"]
+        l6["deliver-release-notes"]
+    end
+
+    block:measure["Measure"]:1
+        m1["measure-experiment-design"]
+        m2["measure-instrumentation-spec"]
+        m3["measure-dashboard-requirements"]
+        m4["measure-experiment-results"]
+        m5["measure-okr-grader"]
+        m6["measure-survey-analysis"]
+    end
+
+    block:iterate["Iterate"]:1
+        i1["iterate-retrospective"]
+        i2["iterate-lessons-log"]
+        i3["iterate-refinement-notes"]
+        i4["iterate-pivot-decision"]
+    end
+
+    discover --> define --> develop --> deliver --> measure --> iterate
+
+    style discover fill:#e7f5ff,stroke:#1971c2,color:#0c2d5e,stroke-width:2px
+    style define fill:#e6fcf5,stroke:#0ca678,color:#0a4f3c,stroke-width:2px
+    style develop fill:#f3e8ff,stroke:#7048e8,color:#3a1d8a,stroke-width:2px
+    style deliver fill:#fff4e1,stroke:#d9480f,color:#5e2200,stroke-width:2px
+    style measure fill:#fff9db,stroke:#e8a317,color:#5e3e00,stroke-width:2px
+    style iterate fill:#ffe9ec,stroke:#c2255c,color:#5c0a25,stroke-width:2px
+```
+
+**Beyond the six phases**, three cross-cutting families support the work at every stage:
+
+- **Foundation (11)** - reusable building blocks for any initiative: `foundation-persona`, `foundation-lean-canvas`, `foundation-okr-writer`, `foundation-stakeholder-update`, `foundation-stakeholder-briefings`, `foundation-prioritized-action-plan`, `foundation-build-risk-review`, and the four meeting skills (agenda, brief, recap, and cross-meeting synthesis).
+- **Workshop tools (15)** - run a facilitated session with your agent: the 7-skill **Foundation Sprint** family for 2-day strategic alignment, the 7-skill **Design Sprint** family for a 5-day prototype-and-test cycle, and the standalone `tool-note-and-vote` decision mechanic.
+- **Utility (12)** - meta-tooling that builds, validates, and maintains the library itself, plus `utility-pm-workflow-builder` for authoring new workflows, `utility-pm-workflow-orchestrator` for governed multi-skill runs, and the sub-agents that handle adversarial review, catalog auditing, changelog curation, and release orchestration.
+
+## The Skill Lifecycle
+
+Three utility skills form a self-reinforcing quality loop for managing the skill library itself:
+
+```mermaid
+flowchart LR
+    Create["utility-pm-skill-builder<br/>Create"] --> Validate["utility-pm-skill-validate<br/>Validate"]
+    Validate --> Decision{Findings?}
+    Decision -- "PASS" --> Ship["Ship"]
+    Decision -- "WARN / FAIL" --> Iterate["utility-pm-skill-iterate<br/>Iterate"]
+    Iterate --> Validate
+```
+
+**Create** a new skill with guided gap analysis and classification. **Validate** it against structural conventions and quality criteria. **Iterate** to fix findings from the validation report or apply feedback. Repeat until passing, then ship.
+
+The lifecycle tools are what keep the library consistent as it grows - the validator catches drift, and the iterator applies fixes with version tracking and change summaries.
+
+[Learn more about the lifecycle](guides/pm-skill-lifecycle.md) · [PM-Skill versioning](reference/pm-skill-versioning.md)
+
+## Quick Start
+
+**Claude Code** - install from the plugin marketplace:
+
+```bash
+/plugin marketplace add product-on-purpose/agent-plugins
+/plugin install pm-skills@product-on-purpose
+```
+
+**Any other agent** - add via the open skills CLI, or clone the repo:
+
+```bash
+npx skills add product-on-purpose/pm-skills
+# or: git clone https://github.com/product-on-purpose/pm-skills.git
+```
+
+Then invoke any skill by name:
+
+```
+deliver-prd "Search feature for e-commerce platform"
+define-hypothesis "Will one-page checkout increase conversion?"
+deliver-acceptance-criteria "User can reset password via email"
+```
+
+[Full setup guide](getting-started/) · [Find the right skill](guides/skill-finder.md) · [Recipes](guides/recipes.md)
+
+### Optional: let the skills remember your project
+
+Every skill starts cold by default, so you re-supply your phase, your initiative, and whatever a previous skill already produced. Record it once instead. Add `.claude/pm-skills.local.md` to your `.gitignore`, then create it:
+
+```yaml
+---
+schema: 1
+phase: discover
+active_initiative: "Self-serve onboarding"
+---
+```
+
+Eight skills read it. The moment worth seeing: run `discover-interview-synthesis` on your research, confirm the entry it offers to record, then run `deliver-prd`. It uses the personas you already produced instead of asking you to paste them again.
+
+Nothing happens until you create the file, and writes are proposed for your confirmation rather than applied. [Full schema, participating skills, and current limits](concepts/hooks.md#project-memory-opt-in)
+
+## See It In Action
+
+Follow three fictional companies through the complete product lifecycle - from discovery research to pivot decisions - with real prompts and full outputs.
+
+<CardGrid>
+  <Card title="Storevine - B2B Ecommerce" icon="bars">
+    Building email marketing for 15K merchants. Organized prompts.
+
+    [Follow the journey](showcase/storevine.md)
+  </Card>
+
+  <Card title="Brainshelf - Consumer PKM" icon="open-book">
+    Building a morning digest for 22K users. Casual prompts.
+
+    [Follow the journey](showcase/brainshelf.md)
+  </Card>
+
+  <Card title="Workbench - Enterprise Collaboration" icon="laptop">
+    Building document templates for 500 enterprises. Structured prompts.
+
+    [Follow the journey](showcase/workbench.md)
+  </Card>
+</CardGrid>
+
+## Works Everywhere
+
+| Platform | Method |
+|----------|--------|
+| **Claude Code** | Slash commands (`deliver-prd`, `define-hypothesis`, etc.) |
+| **GitHub Copilot** | AGENTS.md auto-discovery |
+| **Cursor / Windsurf** | AGENTS.md or [MCP server](https://github.com/product-on-purpose/pm-skills-mcp) |
+| **Claude.ai / Desktop** | ZIP upload or MCP |
+| **Any MCP client** | [pm-skills-mcp](https://github.com/product-on-purpose/pm-skills-mcp) |
+
+## Workflows
+
+12 guided multi-skill workflows for common PM processes. Each chains skills in a recommended sequence with handoff guidance.
+
+| Workflow | Best for | Skills |
+|----------|----------|--------|
+| [Feature Kickoff](workflows/feature-kickoff.md) | New features | problem-statement, hypothesis, prd, user-stories, launch-checklist |
+| [Lean Startup](workflows/lean-startup.md) | Rapid validation | hypothesis, experiment-design, experiment-results, pivot-decision |
+| [Triple Diamond](workflows/triple-diamond.md) | Major initiatives | All 30 phase skills across 6 phases |
+| [Customer Discovery](workflows/customer-discovery.md) | Research to problem | interview-synthesis, jtbd-canvas, opportunity-tree, problem-statement |
+| [Sprint Planning (agile)](workflows/sprint-planning.md) | Agile sprint-ready stories | refinement-notes, user-stories, edge-cases |
+| [Product Strategy](workflows/product-strategy.md) | Strategic framing | competitive-analysis, stakeholder-summary, opportunity-tree, solution-brief, adr |
+| [Post-Launch Learning](workflows/post-launch-learning.md) | Ship to learn | instrumentation-spec, dashboard-requirements, experiment-results, retrospective, lessons-log |
+| [Stakeholder Alignment](workflows/stakeholder-alignment.md) | Leadership buy-in | stakeholder-summary, problem-statement, solution-brief, launch-checklist |
+| [Technical Discovery](workflows/technical-discovery.md) | Feasibility | spike-summary, adr, design-rationale |
+| [Foundation Sprint](workflows/foundation-sprint.md) | 2-day strategic alignment | 7 `tool-foundation-sprint-*` skills producing a testable Founding Hypothesis |
+| [Design Sprint](workflows/design-sprint.md) | 5-day prototype + test | 7 `tool-design-sprint-*` skills producing a Decider's build/iterate/pivot/stop call |
+| [Foundation to Design](workflows/foundation-to-design.md) | End-to-end FS + DS arc | Both families chained with a narrative handoff conversation |
+
+[All workflows](workflows/)
+
+## Recent Releases
+
+{/* count-exempt:start */}
+| Version | Date | Highlights |
+|---------|------|-----------|
+| **[v2.26.0](releases/Release_v2.26.0.md)** | 2026-06-10 | Authoring + quality: `/chain` runs any ad-hoc skill sequence with go/no-go checkpoints, the new `utility-pm-workflow-builder` promotes proven chains into durable workflows, and all 26 original-generation skills gained "When NOT to Use" boundaries. Catalog grows 65 to 66. |
+| **[v2.25.2](releases/Release_v2.25.2.md)** | 2026-06-10 | Maintenance patch: a single manifest now declares every release-gate validator, with an enforcing CI parity referee so the bash, PowerShell, and CI inventories cannot drift. Closes the 2026-06-06 audit. |
+| **[v2.25.1](releases/Release_v2.25.1.md)** | 2026-06-06 | Maintenance patch: docs site moves to the family `site/` layout (Pattern S), a generated CI-gated resource index, root-link repair with an enforcing guard, and an em-dash-scar cleanup. |
+| **[v2.25.0](releases/Release_v2.25.0.md)** | 2026-06-03 | The plugin's first hooks: opt-in house-rule guardrails and a confident-only phase router, plus an advisory output-quality CI tier. No new skills. |
+| **[v2.24.0](releases/Release_v2.24.0.md)** | 2026-06-01 | `utility-pm-workflow-orchestrator` runs a prioritized action plan through its recommended pm-skills with go/no-go checkpoints. Ships EXPERIMENTAL. Catalog grows 64 to 65. |
+| **[v2.23.0](releases/Release_v2.23.0.md)** | 2026-05-31 | `foundation-prioritized-action-plan` turns rough notes, transcripts, or a vague ask into one prioritized action plan with honest confidence levels. Catalog grows 63 to 64. |
+| **[v2.22.0](releases/Release_v2.22.0.md)** | 2026-05-30 | One menu entry per skill: the 63 duplicate command wrappers are gone, so each capability shows once. Native Codex support added via a `.codex-plugin` manifest. All 65 skills unchanged. |
+| **[v2.21.0](releases/Release_v2.21.0.md)** | 2026-05-26 | Marketplace launch: pm-skills now installs from the `product-on-purpose` plugin marketplace. The previous install path keeps working, so existing setups need no change. |
+| **[v2.20.0](releases/Release_v2.20.0.md)** | 2026-05-25 | Each workshop methodology is now a single command: `/workflow-foundation-sprint`, `/workflow-design-sprint`, and `/workflow-foundation-to-design` chain their per-day skills end to end. |
+| **[v2.19.0](releases/Release_v2.19.0.md)** | 2026-05-23 | Pre-promotion hardening: new validators catch stale counts, dead links, and references to skills that do not exist before they can ship. Nothing you use behaves differently. |
+
+[All releases](releases/) · [Full changelog](changelog.md)
+{/* count-exempt:end */}
+
+## Links
+
+- [GitHub Repository](https://github.com/product-on-purpose/pm-skills)
+- [MCP Server](https://github.com/product-on-purpose/pm-skills-mcp)
+- [Agent Skills Specification](https://agentskills.io/specification)

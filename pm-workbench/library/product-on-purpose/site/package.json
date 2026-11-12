@@ -1,0 +1,29 @@
+{
+  "name": "pm-skills-docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Astro Starlight documentation site for pm-skills",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "gen": "node ../scripts/gen-site.mjs",
+    "build": "node ../scripts/gen-site.mjs && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.4",
+    "@astrojs/starlight": "~0.42.7",
+    "astro": "^7.4.2",
+    "astro-mermaid": "~2.2.0",
+    "sharp": "^0.35.5"
+  },
+  "overrides": {
+    "mermaid": "^11.16.1",
+    "devalue": "^5.9.4"
+  }
+}

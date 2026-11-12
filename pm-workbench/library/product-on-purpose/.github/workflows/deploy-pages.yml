@@ -1,0 +1,74 @@
+name: Deploy to GitHub Pages
+
+# v2.14.0 W11 cutover landed via flipping the Pages source from
+# "Deploy from a branch > gh-pages" to "GitHub Actions" in repo
+# Settings > Pages. After the flip, this workflow's last successful
+# deployment IS production.
+#
+# Composable steps (not the all-in-one withastro/action) because the build
+# runs a Node generator before astro build: `npm run build` chains
+# `node ../scripts/gen-site.mjs && astro build` (the generator emits the
+# Starlight content into site/src/content/docs/, then Astro builds it). The
+# all-in-one action runs astro build directly with no pre-build hook, so it
+# would skip the generator.
+#
+# Triggers: push to main (auto-deploy) and workflow_dispatch (manual).
+# Concurrency group "pages" with cancel-in-progress: false so a slower
+# in-flight deploy is not interrupted by a newer trigger.
+#
+# Rollback path: flip Pages source back to "Deploy from a branch >
+# gh-pages" to serve the last gh-pages build (a static fossil from
+# before the v2.14 doc-stack cutover).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node (pin from .nvmrc)
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site (generator + Astro Starlight)
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

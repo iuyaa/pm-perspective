@@ -1,0 +1,48 @@
+name: Sync upstream methods
+
+on:
+  schedule:
+    - cron: '23 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install PyYAML==6.0.3
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/sync_upstream.py
+      - run: python pm-workbench/scripts/check_library.py
+      - name: Commit validated snapshots
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- pm-workbench/library pm-workbench/references/library.json pm-workbench/references/snapshots.json pm-workbench/references/catalog.tsv
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: sync upstream product methods'
+            git push origin HEAD:main
+          fi
+      - name: Record source versions
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+          manifest = json.loads(Path('pm-workbench/references/library.json').read_text())
+          print('## Synced upstream sources\n')
+          for source in manifest['sources']:
+              print(f"- {source['id']} — {source['skill_count']} methods at `{source['commit'][:12]}`")
+          PY

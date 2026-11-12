@@ -1,0 +1,39 @@
+{
+  "checked_on": "2026-11-12",
+  "root": "../library",
+  "sources": [
+    {
+      "id": "deanpeters",
+      "url": "https://github.com/deanpeters/Product-Manager-Skills",
+      "commit": "cfcb697f14b8891d8b3ec43c16c3547df3e70e13",
+      "skill_count": 77,
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    {
+      "id": "linyindong",
+      "url": "https://github.com/linyindong/platform-product-skills",
+      "commit": "d88a30bec91aad5397fa86ce4b00706650a90961",
+      "skill_count": 7,
+      "license": "MIT"
+    },
+    {
+      "id": "product-on-purpose",
+      "url": "https://github.com/product-on-purpose/pm-skills",
+      "commit": "9b920db418c5bf641edea9afb4915a286e1d42ea",
+      "skill_count": 68,
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "julianoczkowski",
+      "url": "https://github.com/julianoczkowski/product-manager",
+      "commit": "b408a093a5d0171937ce5f9035c2e3b073689e97",
+      "skill_count": 18,
+      "license": "MIT"
+    }
+  ],
+  "upstream_frontmatter_parse_warnings": [
+    "linyindong/skills/platform-product-orchestrator/METHOD.md",
+    "linyindong/skills/platform-rfc-reviewer/METHOD.md"
+  ],
+  "transform": "Rename all upstream skill.md manifests to METHOD.md and update Markdown references; preserve other file bytes."
+}

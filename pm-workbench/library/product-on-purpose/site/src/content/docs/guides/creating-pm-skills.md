@@ -1,0 +1,1072 @@
+---
+title: Creating PM Skills
+description: "Authoring guide for new pm-skills: METHOD.md frontmatter requirements, the three-file model (SKILL + TEMPLATE + EXAMPLE), classification rules, naming conventions, and validator-driven PR review."
+---
+
+This guide walks you through creating new PM skills for submission to the pm-skills repository. Whether you're contributing your first skill or your tenth, this guide covers everything from concept to pull request.
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Before You Start](#before-you-start)
+- [The Contribution Process](#the-contribution-process)
+- [Skill Anatomy](#skill-anatomy)
+- [Writing METHOD.md](#writing-skillmd)
+- [Skeleton Canon: The Three Sanctioned Dialects](#skeleton-canon-the-three-sanctioned-dialects)
+- [Creating TEMPLATE.md](#creating-templatemd)
+- [Writing EXAMPLE.md](#writing-examplemd)
+- [Invoking Your Skill](#invoking-your-skill)
+- [Testing Your Skill](#testing-your-skill)
+- [Quality Checklist](#quality-checklist)
+- [Submission Process](#submission-process)
+- [Common Mistakes](#common-mistakes)
+- [Advanced Topics](#advanced-topics)
+
+---
+
+## Overview
+
+### What Makes a Good Skill?
+
+A good PM skill:
+
+1. **Solves a real problem** - PMs actually need this artifact regularly
+2. **Produces consistent output** - Same quality every time
+3. **Works across contexts** - Useful for different products, teams, industries
+4. **Is well-documented** - Clear instructions, useful template, realistic example
+5. **Integrates with workflows** - Chains naturally with other skills
+
+### The Three Files
+
+Every skill consists of three files:
+
+```
+skills/<skill-name>/
+├── METHOD.md              # Instructions for the AI
+└── references/
+    ├── TEMPLATE.md       # Output structure
+    └── EXAMPLE.md        # Completed example
+```
+
+Skills are invoked directly by name; there is no per-skill command wrapper (see [Invoking Your Skill](#invoking-your-skill)).
+
+---
+
+## Before You Start
+
+### 1. Check If It Already Exists
+
+Review the existing repo catalog before opening a new skill proposal. The current repo contains 68 skills in `skills/` (30 phase, 11 foundation, 12 utility, and 15 tool entries covering Foundation Sprint plus Design Sprint families plus the tool-note-and-vote standalone, introduced in v2.15.0), while `AGENTS.md` lists the currently registered/discoverable subset.
+
+| Category | Existing Skills |
+|----------|-----------------|
+| research | interview-synthesis, competitive-analysis, stakeholder-summary, persona |
+| problem-framing | problem-statement, opportunity-tree, jtbd-canvas |
+| ideation | hypothesis, solution-brief |
+| specification | prd, user-stories, acceptance-criteria, edge-cases, adr, design-rationale |
+| validation | experiment-design, instrumentation-spec, dashboard-requirements |
+| reflection | experiment-results, retrospective, lessons-log, pivot-decision |
+| coordination | launch-checklist, release-notes, spike-summary, refinement-notes |
+
+Plus shipped non-phase skills:
+- `foundation-persona`
+- `utility-pm-skill-builder`
+
+### 2. Validate the Need
+
+Answer these questions:
+
+- [ ] Do PMs create this artifact at least monthly?
+- [ ] Would 3+ different PM roles find this useful?
+- [ ] Does it produce a concrete deliverable (not just advice)?
+- [ ] Can you describe 3+ distinct use cases?
+- [ ] Is it different enough from existing skills?
+
+If you answered "no" to any, reconsider whether this is the right skill.
+
+### 3. Choose the Right Category
+
+| Category | Use When The Skill... |
+|----------|----------------------|
+| `research` | Gathers or synthesizes information about users, market, or stakeholders |
+| `problem-framing` | Defines, scopes, or articulates problems to solve |
+| `ideation` | Explores solutions or forms testable assumptions |
+| `specification` | Details requirements, decisions, or what to build |
+| `validation` | Plans or instruments experiments and measurement |
+| `reflection` | Captures learnings, retrospectives, or pivot decisions |
+| `coordination` | Aligns teams, prepares launches, or communicates |
+
+Plus shipped non-phase skills:
+- `foundation-persona`
+- `utility-pm-skill-builder`
+
+### 4. Choose Classification and Phase
+
+Skills live in a **flat `skills/` directory**, but the repo now uses two frontmatter axes:
+
+| Classification | Phase rule | Naming pattern | Examples |
+|----------------|------------|----------------|----------|
+| `domain` | `phase` is required | phase-prefixed skill name | `discover-interview-synthesis`, `deliver-prd` |
+| `foundation` | omit `phase` | classification-driven name | `foundation-persona` |
+| `utility` | omit `phase` | classification-driven name | `utility-<name>` |
+
+For most new PM artifact skills, use domain behavior: choose the primary lifecycle phase, then prefix the skill name with that phase for clarity and sorting.
+
+| Phase | When | Examples |
+|-------|------|----------|
+| `discover` | Understanding the landscape | `discover-interview-synthesis`, `discover-competitive-analysis` |
+| `define` | Framing the problem | `define-problem-statement`, `define-hypothesis` |
+| `develop` | Exploring solutions | `develop-solution-brief`, `develop-adr` |
+| `deliver` | Specifying and shipping | `deliver-prd`, `deliver-user-stories`, `deliver-launch-checklist` |
+| `measure` | Validating with data | `measure-experiment-design`, `measure-instrumentation-spec` |
+| `iterate` | Learning and improving | `iterate-retrospective`, `iterate-lessons-log` |
+
+---
+
+## The Contribution Process
+
+### Step 1: Open an Issue
+
+Before writing any code, open a "Request a Skill" issue with:
+
+```markdown
+## Skill Proposal: <skill-name>
+
+### Name
+<lowercase-with-hyphens>
+
+### Category
+<one of the 7 categories>
+
+### Classification
+<domain | foundation | utility>
+
+### Phase
+<one of the 6 phases; required for domain skills, omit for foundation/utility>
+
+### Description
+<1-2 sentences: what it does and when to use it>
+
+### Use Cases
+1. <Specific scenario where this adds value>
+2. <Another scenario>
+3. <Another scenario>
+
+### Example Output (Brief)
+<Show a snippet of what the skill would produce>
+
+### Why This Skill?
+<Why doesn't an existing skill cover this? What gap does it fill?>
+```
+
+### Step 2: Wait for Approval
+
+Maintainers will review your proposal and may:
+- **Approve** - You're cleared to build
+- **Request changes** - Adjust the scope or approach
+- **Suggest alternatives** - An existing skill might work
+- **Decline** - The skill doesn't fit the project
+
+### Step 3: Build the Skill
+
+Once approved, create your skill following this guide.
+
+### Step 4: Submit a Pull Request
+
+Open a PR with:
+- The three required files
+- Updates to AGENTS.md (skill listing)
+- Confirmation that you've tested the skill
+
+---
+
+## Skill Anatomy
+
+### Directory Structure
+
+```
+skills/
+└── <skill-name>/               # lowercase-with-hyphens; domain skills are phase-prefixed
+    ├── METHOD.md                # Main instructions
+    └── references/
+        ├── TEMPLATE.md         # Output template
+        └── EXAMPLE.md          # Completed example
+```
+
+### Naming Rules
+
+Per the [agentskills.io specification](https://agentskills.io/specification):
+
+| Rule | Valid | Invalid |
+|------|-------|---------|
+| Lowercase only | `problem-statement` | `Problem-Statement` |
+| Hyphens for spaces | `user-stories` | `user_stories` |
+| No consecutive hyphens | `edge-cases` | `edge--cases` |
+| 1-64 characters | `prd` | (65+ chars) |
+| Letters, numbers, hyphens | `adr`, `v2-roadmap` | `adr!`, `v2.roadmap` |
+| **Must match directory** | Dir: `prd/`, name: `prd` | Dir: `prd/`, name: `PRD` |
+
+### Choosing a Name
+
+Good names:
+- **Match the repo-native skill ID:** `deliver-prd`, `iterate-retrospective`, `develop-adr`
+- **Are recognizable:** PMs know what "PRD" means
+- **Are searchable:** Include key terms
+- **Are concise:** 1-3 words typical
+
+---
+
+## Writing METHOD.md
+
+The METHOD.md file is the heart of your skill. It tells the AI exactly how to create the artifact.
+
+Every `##` section you write also renders on the skill's generated documentation page. That page is a faithful rendering of your METHOD.md (built by `scripts/gen-site.mjs`): recognized sections (`When to Use`, `When NOT to Use`, `Instructions`, `Quality Checklist`) land in dedicated slots, and any other section is rendered verbatim in document order, so nothing is dropped. The `check-skill-page-sections` CI gate fails the build if any section would be lost. Structure your METHOD.md for human readers as well as the agent.
+
+### Required Sections
+
+```markdown
+---
+name: deliver-skill-name
+description: What it does and when to use it. Include trigger keywords.
+phase: deliver
+# classification: foundation   # Use this instead of phase for non-domain skills
+version: "1.0.0"
+updated: 2026-03-19
+license: Apache-2.0
+metadata:
+  category: specification
+  frameworks: [triple-diamond, lean-startup, design-thinking]
+  author: your-github-username
+---
+
+# Skill Title
+
+<Overview paragraph>
+
+## When to Use
+
+- <Situation 1>
+- <Situation 2>
+- <Situation 3>
+
+## Instructions
+
+When asked to create [artifact], follow these steps:
+
+1. **Step Title**
+   Description of what to do and why.
+
+2. **Step Title**
+   Description of what to do and why.
+
+[Continue with more steps]
+
+## Output Contract
+
+Use the template in `references/TEMPLATE.md` to structure the output.
+
+## Quality Checklist
+
+Before finalizing, verify:
+
+- [ ] Quality criterion 1
+- [ ] Quality criterion 2
+- [ ] Quality criterion 3
+
+## Examples
+
+See `references/EXAMPLE.md` for a completed example.
+```
+
+### Writing the Frontmatter
+
+#### name
+Must exactly match the directory name. Lowercase, hyphens only.
+
+```yaml
+name: iterate-sprint-review  # Directory must be skills/iterate-sprint-review/
+```
+
+#### description
+
+This is critical for AI discovery. Write for both humans and machines.
+
+**Structure:** `[Action verb] [artifact type] [key details]. Use when [trigger 1], [trigger 2], or [trigger 3].`
+
+**Good example:**
+```yaml
+description: Creates a comprehensive Product Requirements Document that aligns stakeholders on what to build, why, and how success will be measured. Use when specifying features, epics, or product initiatives for engineering handoff.
+```
+
+**Bad example:**
+```yaml
+description: Helps with PRDs.  # Too vague, no triggers
+```
+
+**Include trigger keywords:**
+- Action words: creates, generates, documents, designs, analyzes
+- Artifact names: PRD, requirements, stories, checklist
+- Context phrases: before launch, after experiments, for engineering
+
+#### metadata.category
+
+One of: `research`, `problem-framing`, `ideation`, `specification`, `validation`, `reflection`, `coordination`
+
+#### metadata.frameworks
+
+Which methodologies use this skill:
+```yaml
+frameworks: [triple-diamond, lean-startup, design-thinking]
+```
+
+Options: `triple-diamond`, `lean-startup`, `design-thinking`, `scrum`, `kanban`, `safe`
+
+#### phase
+
+Use `phase` for domain skills. This is required for the 30 phase-classified PM skills.
+
+```yaml
+phase: deliver
+```
+
+Valid values: `discover`, `define`, `develop`, `deliver`, `measure`, `iterate`
+
+#### classification
+
+Use `classification` only when the skill is not a domain skill. Foundation and utility skills omit `phase`.
+
+```yaml
+classification: foundation
+```
+
+Valid values: `domain`, `foundation`, `utility`
+
+### Run Repo Validators
+
+Before you open a PR, run the repo validators that correspond to your change:
+
+- `./scripts/lint-skills-frontmatter.sh` or `.ps1` - skill frontmatter, description length, template structure
+- `./scripts/validate-commands.sh` or `.ps1` - command file path references
+- `./scripts/validate-agents-md.sh` or `.ps1` - `AGENTS.md` path sync for discoverable skills
+- `./scripts/check-mcp-impact.sh` or `.ps1` - advisory only, but useful when adding or renaming skills
+
+#### version
+
+Use one quoted root `version` field. Do not nest version under `metadata`.
+
+Always quote to prevent YAML float interpretation:
+```yaml
+version: "1.0.0"  # Correct
+version: 1.0.0    # Wrong - YAML interprets as float
+```
+
+#### updated
+
+Use one root `updated` field with an ISO date:
+
+```yaml
+updated: 2026-03-19
+```
+
+### Writing the Overview
+
+One paragraph explaining:
+- What artifact this skill produces
+- Why it matters
+- What value it provides
+
+**Example:**
+```markdown
+A Product Requirements Document is the primary specification artifact that
+communicates what to build and why. It bridges the gap between problem
+understanding and engineering implementation by providing clear requirements,
+success criteria, and scope boundaries. A good PRD enables engineering to
+build the right thing while maintaining flexibility on implementation details.
+```
+
+### Writing "When to Use"
+
+List 4-6 specific situations. Be concrete:
+
+**Good:**
+```markdown
+## When to Use
+
+- After problem and solution alignment, before engineering work begins
+- When specifying features, epics, or product initiatives for handoff
+- When multiple teams need to coordinate on a shared deliverable
+- When stakeholders need to approve scope before investment
+- As reference documentation during development and QA
+```
+
+**Bad:**
+```markdown
+## When to Use
+
+- When you need a PRD
+- For product work
+```
+
+### Writing Instructions
+
+Instructions are step-by-step directions the AI follows. Each step should:
+
+1. **Have a clear action title** - What to do
+2. **Explain the purpose** - Why it matters
+3. **Provide guidance** - How to do it well
+
+**Example:**
+```markdown
+## Instructions
+
+When asked to create a PRD, follow these steps:
+
+1. **Summarize the Problem**
+   Start with a brief recap of the problem being solved. Link to the problem
+   statement if available. Ensure readers understand *why* this work matters
+   before diving into *what* to build.
+
+2. **Define Goals and Success Metrics**
+   Articulate what success looks like. Include specific, measurable metrics
+   with baselines and targets. These metrics should connect directly to the
+   problem being solved.
+
+3. **Outline the Solution**
+   Describe the proposed solution at a high level. Focus on user-facing
+   functionality and key capabilities. Include enough detail for stakeholders
+   to evaluate the approach without over-specifying implementation.
+```
+
+**Tips:**
+- 5-10 steps is typical
+- Each step should be actionable
+- Include what information to gather
+- Mention what to skip or defer
+
+### Writing the Quality Checklist
+
+Provide 5-8 criteria for validating output quality:
+
+```markdown
+## Quality Checklist
+
+Before finalizing, verify:
+
+- [ ] Problem and "why now" are clearly articulated
+- [ ] Success metrics are specific and measurable
+- [ ] Scope boundaries are explicit (in/out/future)
+- [ ] Requirements are testable and unambiguous
+- [ ] Technical considerations are surfaced without over-specifying
+- [ ] Dependencies and risks are documented with owners
+- [ ] Document is readable in under 15 minutes
+```
+
+**Make criteria:**
+- Specific and verifiable
+- Focused on common failure modes
+- Actionable (can be fixed if not met)
+
+---
+
+## Skeleton Canon: The Three Sanctioned Dialects
+
+The example in [Required Sections](#writing-skillmd) above shows one shape for a METHOD.md. It is not the only shape: the shipped catalog uses three sanctioned structural dialects, each with its own exact heading skeleton. **A new skill picks one of the three below. It does not invent a fourth.**
+
+This section exists because that discipline was missing until v2.30.0 (M-35, the 2026-07-04 trust-repair audit). The prior standard told a builder to "mirror the closest exemplar" - a circular instruction, since the exemplar pool already contained drift (case variants like `Quality checklist` vs `Quality Checklist`, and at least six different output-section heading names). Mirroring an exemplar that had already drifted let a new, unsanctioned pattern emerge informally in `foundation-build-risk-review`. The fix is a named canon to mirror instead of an arbitrary prior skill.
+
+Heading text below is exact, including case. A dialect's skeleton is its *required* headings in order; a skill may add its own extra `##` sections between the required ones (a framework-specific breakdown, a domain glossary, a common-patterns list) without leaving its dialect.
+
+### Dialect 1: Classic
+
+The default. Used by the large majority of phase-prefixed (`discover-`, `define-`, `develop-`, `deliver-`, `measure-`, `iterate-`) skills, and by most `foundation-`/`utility-` skills. Exemplars: `deliver-prd`, `define-hypothesis`, `define-opportunity-tree`, `discover-interview-synthesis`.
+
+```markdown
+# <Skill Title>
+
+<Overview paragraph>
+
+## When to Use
+## When NOT to Use
+## Instructions
+## Output Format         <!-- or "Output Contract" when the output shape is itself
+                              independently versioned (e.g. "Output Contract (v1.2.0)") -->
+## Quality Checklist
+## Examples
+```
+
+### Dialect 2: Contract-shaped
+
+A smaller cohort of research/analysis skills that front-load a behavioral contract before getting to inputs: an explicit `Identity` (phase, turn-lifetime, tool access, output type), a stated `Core principle`, numbered `Refusal protocols` for bad inputs, and a `Cross-skill composition` map instead of a plain Examples pointer. Exemplars: `define-prioritization-framework`, `discover-journey-map`, `discover-market-sizing`, `measure-survey-analysis` - all four gained the required `When NOT to Use` section in v2.30.0 (M-35), closing the one gap they previously had against this skeleton.
+
+```markdown
+# <Skill Title>
+
+<Overview paragraph>
+
+## Identity
+## Core principle
+## When NOT to Use
+## Inputs
+## What you produce      <!-- numbered ### subsections, one per output element -->
+## Refusal protocols     <!-- numbered list -->
+## Cross-skill composition
+## Output Format
+## Quality Checklist
+## Cross-references
+```
+
+Use this dialect when a skill must refuse classes of bad input explicitly (fabricated data, insufficient sample size, wrong-framework insistence) rather than only describe its happy path - the numbered `Refusal protocols` section is the tell.
+
+### Dialect 3: Tool-family
+
+All 15 `tool-*` skills (the Foundation Sprint family, the Design Sprint family, and the standalone `tool-note-and-vote`). This dialect is a facilitation-format contract, not a content-artifact contract: it names roles (facilitator, Decider), a timebox, and ends every skill on an explicit sign-off. Exemplars: `tool-foundation-sprint-brief`, `tool-design-sprint-sketch`.
+
+```markdown
+# <Skill Title>
+
+<Overview paragraph>
+
+## When to Use
+## When NOT to Use
+## What This Skill Produces
+                          <!-- skill-specific process/sequence sections here -->
+## Common Pitfalls
+## Decider Role           <!-- present on most family members; optional -->
+## Canonical Sources
+## Cross-Skill Usage
+## Decider Checkpoint
+```
+
+The two sprint families additionally carry their own frontmatter and file-anatomy contract, documented in [Foundation Sprint Skills Contract](../reference/skill-families/foundation-sprint-skills-contract.md) and [Design Sprint Skills Contract](../reference/skill-families/design-sprint-skills-contract.md) - read this section for the shared METHOD.md heading skeleton and those contracts for everything else (frontmatter shape, library-sample requirements, the `Decider Checkpoint` positional rule). `tool-note-and-vote` is the standalone: it is not a family member, and its heading spellings (`Output Structure`, `Canonical Source`, `Cross-Family Usage`) predate this canon and are tracked for reconciliation rather than reproduced in a new skill. It also omits two required canon headings outright (`What This Skill Produces` and `Decider Checkpoint`), so its drift from this dialect is missing headings as well as renamed ones.
+
+### Choosing a dialect for a new skill
+
+| If the new skill... | Use |
+|---|---|
+| Produces one artifact via a linear instruction flow (the common case) | Classic |
+| Must state hard refusal rules up front (anti-fabrication, minimum-input gates) before describing inputs | Contract-shaped |
+| Is a new move in an existing named workshop methodology, or a new standalone facilitation format | Tool-family |
+
+If none of the three fits, that is a signal to reconsider the skill's shape with a maintainer before drafting - not a license to author a fourth vocabulary. `utility-pm-skill-builder` and `utility-pm-skill-validate` both point here as the canon for skeleton shape and heading spelling.
+
+Older skills that predate this canon and do not cleanly match any of the three (a handful of `foundation-*` skills use a fourth, informally-emerged pattern: `Zero-friction execution`, lowercase `Quality checklist`, a bare `Output` heading, and `See also` instead of `Examples`) are not retrofitted by this section. A full-catalog normalization pass is out of scope for v2.30.0; `scripts/check-heading-canon.mjs` ships advisory for exactly this reason - only skills touched in a given release are held to the canon until that pass lands.
+
+---
+
+## Creating TEMPLATE.md
+
+The template provides the exact structure for the output.
+
+### Template Structure
+
+```markdown
+---
+artifact: <artifact-type>
+version: "1.0"
+created: <YYYY-MM-DD>
+status: draft
+---
+
+# <Artifact Title>
+
+## Section 1
+<!-- Guidance on what goes here -->
+
+[Content placeholder]
+
+## Section 2
+<!-- Guidance on what goes here -->
+
+[Content placeholder]
+```
+
+### Template Principles
+
+1. **Use clear section headings** - Match the sections in your instructions
+2. **Include HTML comments** - Guide the AI on what each section needs
+3. **Provide structure hints** - Tables, lists, or prose as appropriate
+4. **Keep it flexible** - Don't over-constrain
+
+### Example: PRD Template (excerpt)
+
+```markdown
+---
+artifact: prd
+version: "1.0"
+created: <YYYY-MM-DD>
+status: draft
+---
+
+# PRD: [Feature/Initiative Name]
+
+## Overview
+
+### Problem Statement
+<!-- Brief recap of the problem. Link to full problem statement if available. -->
+
+[Problem summary]
+
+### Solution Summary
+<!-- High-level description of what we're building -->
+
+[Solution summary]
+
+## Goals & Success Metrics
+
+### Goals
+<!-- What outcomes are we trying to achieve? -->
+
+1. [Primary goal]
+2. [Secondary goal]
+
+### Success Metrics
+
+| Metric | Current Baseline | Target | Timeline |
+|--------|-----------------|--------|----------|
+| [Primary metric] | [Value] | [Value] | [Date] |
+
+## Scope
+
+### In Scope
+<!-- What will be delivered in this iteration -->
+
+- [Feature/capability 1]
+- [Feature/capability 2]
+
+### Out of Scope
+<!-- What will NOT be delivered -->
+
+- [Excluded item 1]
+```
+
+### Template Tips
+
+- **Match your instructions:** If instructions say "Define Goals," have a "Goals" section
+- **Use tables for structured data:** Metrics, risks, dependencies work well as tables
+- **Include frontmatter:** Helps track artifact metadata
+- **Add placeholder guidance:** `<!-- Comments -->` help the AI understand intent
+
+---
+
+## Writing EXAMPLE.md
+
+The example shows what a great output looks like. This is crucial for quality calibration.
+
+### Example Requirements
+
+1. **Complete** - No placeholders, fully filled out
+2. **Realistic** - Based on a believable scenario
+3. **High quality** - Demonstrates what "good" looks like
+4. **Appropriately detailed** - Not too sparse, not bloated
+
+### Example Structure
+
+```markdown
+---
+artifact: prd
+version: "1.0"
+created: 2025-01-15
+status: complete
+context: Project management tool adding recurring tasks feature
+---
+
+# PRD: Recurring Tasks
+
+## Overview
+
+### Problem Statement
+
+Users of TaskFlow spend significant time manually recreating repetitive
+tasks that occur on predictable schedules. Our research shows that 34%
+of all tasks created are duplicates of previous tasks, and power users
+report spending 2+ hours per week on this manual work...
+
+[Continue with fully completed content]
+```
+
+### Choosing an Example Scenario
+
+Pick a scenario that is:
+
+- **Relatable** - Most PMs understand it
+- **Representative** - Shows typical complexity
+- **Complete** - Has enough depth to fill all sections
+- **Generic** - Not specific to one industry or company
+
+**Good scenarios:**
+- E-commerce: Search, checkout, wishlist features
+- SaaS: User management, reporting, integrations
+- Productivity: Task management, collaboration, notifications
+
+**Avoid:**
+- Highly specialized domains (medical, legal)
+- Controversial topics
+- Company-specific context
+
+### Example Quality Bar
+
+Your example should demonstrate:
+
+- [ ] All template sections filled meaningfully
+- [ ] Realistic numbers, names, and dates
+- [ ] Appropriate level of detail
+- [ ] Professional tone
+- [ ] No placeholder text (`[TBD]`, `XXX`)
+- [ ] Internally consistent
+
+---
+
+## Invoking Your Skill
+
+In v2.22.0+ there are no per-skill command wrappers; a skill is invoked directly by its name on every client:
+
+- **Claude Code:** `/pm-skills:<skill-name> "your context"`
+- **Codex:** `$<skill-name> "your context"`
+- **Cursor / Windsurf / Copilot / Gemini CLI:** discovered via AGENTS.md and invoked by name
+
+### The $ARGUMENTS Variable
+
+`$ARGUMENTS` captures everything the user types after the skill name:
+
+```
+/pm-skills:deliver-prd search feature for e-commerce
+```
+
+---
+
+## Testing Your Skill
+
+Before submitting, thoroughly test your skill.
+
+### Test Checklist
+
+- [ ] **Basic invocation works** - Skill produces reasonable output
+- [ ] **Template is followed** - Output matches template structure
+- [ ] **Example quality is matched** - Output quality similar to example
+- [ ] **Different contexts work** - Try 3+ different scenarios
+- [ ] **Direct-name invocation works** - `/pm-skills:<name>` on Claude Code or `$<name>` on Codex
+- [ ] **Chains with other skills** - Works as input/output with related skills
+
+### Testing Methods
+
+#### Method 1: Direct Reference
+
+```
+Read skills/deliver-my-skill/METHOD.md and use it to create
+[artifact] for [your test scenario].
+```
+
+#### Method 2: Direct invocation by name
+
+```
+/pm-skills:<skill-name> "test scenario context"
+```
+
+#### Method 3: Natural Language
+
+```
+Use the my-skill skill to create [artifact] for [scenario].
+```
+
+### Test Scenarios
+
+Test with at least:
+
+1. **Minimal context** - Just the basic request
+2. **Rich context** - Detailed background information
+3. **Edge case** - Unusual or challenging scenario
+4. **Different domain** - Another industry or product type
+
+### What to Look For
+
+**Good signs:**
+- Output follows template structure
+- All sections are meaningfully filled
+- Quality matches your example
+- Consistent results across tests
+
+**Warning signs:**
+- Sections are skipped or empty
+- Output doesn't match template
+- Quality varies wildly
+- AI asks too many clarifying questions
+
+---
+
+## Quality Checklist
+
+Before submitting your PR, verify:
+
+### File Structure
+- [ ] Directory path is `skills/<skill-name>/`
+- [ ] Contains `METHOD.md`
+- [ ] Contains `references/TEMPLATE.md`
+- [ ] Contains `references/EXAMPLE.md`
+
+### Frontmatter
+- [ ] `name` matches directory name exactly
+- [ ] `description` is 50-300 characters with trigger keywords
+- [ ] Either `phase` or `classification` is correct for the skill type
+- [ ] `category` is one of the 7 valid values
+- [ ] Root `version` is quoted (`"1.0.0"`)
+- [ ] `updated` uses `YYYY-MM-DD`
+- [ ] `license` is `Apache-2.0`
+
+### METHOD.md Content
+- [ ] Overview paragraph explains value
+- [ ] 4-6 "When to Use" situations
+- [ ] 5-10 clear instruction steps
+- [ ] References template and example
+- [ ] 5-8 quality checklist items
+
+### TEMPLATE.md
+- [ ] Frontmatter with artifact type
+- [ ] Clear section structure
+- [ ] HTML comments with guidance
+- [ ] Matches instruction steps
+
+### EXAMPLE.md
+- [ ] Complete (no placeholders)
+- [ ] Realistic scenario
+- [ ] Demonstrates quality bar
+- [ ] Follows template exactly
+
+### Testing
+- [ ] Tested with 3+ scenarios
+- [ ] Output matches template
+- [ ] Quality matches example
+- [ ] Invocation by name works
+
+---
+
+## Submission Process
+
+### 1. Fork the Repository
+
+```bash
+# Fork via GitHub UI, then clone your fork
+git clone https://github.com/YOUR-USERNAME/pm-skills.git
+cd pm-skills
+```
+
+### 2. Create a Branch
+
+```bash
+git checkout -b skill/<skill-name>
+```
+
+### 3. Add Your Files
+
+```
+skills/<skill-name>/
+├── METHOD.md
+└── references/
+    ├── TEMPLATE.md
+    └── EXAMPLE.md
+```
+
+### 4. Update AGENTS.md
+
+Add your skill to the appropriate section:
+
+```markdown
+#### <skill-name>
+**Path:** `skills/<skill-name>/METHOD.md`
+
+<Your description from frontmatter>
+```
+
+Add the command to the Commands section:
+
+```markdown
+| `/<skill-name>` | <Brief description> |
+```
+
+### 5. Commit and Push
+
+```bash
+git add .
+git commit -m "feat: add <skill-name> skill"
+git push origin skill/<skill-name>
+```
+
+### 6. Open a Pull Request
+
+Include in your PR description:
+
+```markdown
+## New Skill: <skill-name>
+
+### Closes
+#<issue-number> (link to approved proposal)
+
+### Description
+<Brief description of what the skill does>
+
+### Testing
+- Tested with [scenario 1]
+- Tested with [scenario 2]
+- Tested with [scenario 3]
+
+### Checklist
+- [ ] METHOD.md complete with valid frontmatter
+- [ ] TEMPLATE.md provides clear structure
+- [ ] EXAMPLE.md is complete and realistic
+- [ ] AGENTS.md updated
+- [ ] Tested with multiple scenarios
+```
+
+---
+
+## Common Mistakes
+
+### Mistake 1: Vague Description
+
+**Bad:**
+```yaml
+description: Helps create roadmaps
+```
+
+**Good:**
+```yaml
+description: Creates a product roadmap document with prioritized initiatives, dependencies, and timeline. Use when planning quarters, communicating strategy to stakeholders, or aligning teams on priorities.
+```
+
+### Mistake 2: Instructions Too Abstract
+
+**Bad:**
+```markdown
+1. **Think about the problem**
+   Consider what matters.
+```
+
+**Good:**
+```markdown
+1. **Define the Problem Scope**
+   Identify the specific user segment affected, the pain point they experience,
+   and the business impact of not solving it. Quantify where possible.
+```
+
+### Mistake 3: Template Doesn't Match Instructions
+
+If instructions say "Define success metrics," the template needs a "Success Metrics" section.
+
+### Mistake 4: Incomplete Example
+
+Placeholders like `[TBD]` or `TODO` in your example mean the AI won't know what complete looks like.
+
+### Mistake 5: Wrong Category
+
+Choosing `ideation` for something that's clearly `specification` confuses organization and discovery.
+
+### Mistake 6: Name Doesn't Match Directory
+
+```
+Directory: skills/deliver-product-roadmap/
+Frontmatter: name: roadmap  # WRONG - must be "deliver-product-roadmap"
+```
+
+---
+
+## Advanced Topics
+
+### Supporting Multiple Frameworks
+
+Your skill can work across methodologies:
+
+```yaml
+metadata:
+  frameworks: [triple-diamond, lean-startup, design-thinking, scrum]
+```
+
+Consider how the skill fits each:
+- **Triple Diamond:** If classification is `domain`, which phase does it belong to?
+- **Lean Startup:** Is it Build, Measure, or Learn?
+- **Design Thinking:** Which stage?
+- **Scrum:** Which ceremony or artifact does it support?
+
+### Creating Skill Chains
+
+Design your skill to work with others:
+
+**Inputs from:**
+```markdown
+## When to Use
+
+- After completing a problem-statement to define testable assumptions
+- Building on insights from interview-synthesis
+```
+
+**Outputs to:**
+```markdown
+## Next Steps
+
+After creating this artifact, consider:
+- Using the `prd` skill to specify detailed requirements
+- Running `experiment-design` to validate assumptions
+```
+
+### Handling Skill Variants
+
+If your skill could have variants (e.g., "lightweight PRD" vs "comprehensive PRD"), consider:
+
+1. **One flexible skill** with instructions for different depths
+2. **Separate skills** if the process differs significantly
+
+Generally prefer one flexible skill unless workflows are truly different.
+
+### Internationalization Considerations
+
+Skills should work globally:
+- Avoid US-specific terminology without explanation
+- Use ISO date formats (`YYYY-MM-DD`)
+- Note when concepts are region-specific
+
+---
+
+## Resources
+
+### Templates
+
+Start with the [skill template](https://github.com/product-on-purpose/pm-skills/tree/main/docs/templates/skill-template):
+```
+docs/templates/skill-template/
+├── METHOD.md
+└── references/
+    ├── TEMPLATE.md
+    └── EXAMPLE.md
+```
+
+### References
+
+- [Frontmatter Schema](../reference/frontmatter-schema.yaml) - Detailed field documentation
+- [Categories Reference](../reference/categories.md) - Category definitions
+- [agentskills.io Specification](https://agentskills.io/specification) - Base specification
+- [Existing Skills](https://github.com/product-on-purpose/pm-skills/blob/main/AGENTS.md) - See how others are structured
+
+### Getting Help
+
+- Open an issue for questions
+- Review existing skills for patterns
+- Ask in your proposal issue before building
+
+---
+
+## Quick Start Checklist
+
+Ready to create a skill? Here's the fast path:
+
+1. [ ] Open "Request a Skill" issue → wait for approval
+2. [ ] Copy `docs/templates/skill-template/` to `skills/<name>/`
+3. [ ] Write METHOD.md with frontmatter, instructions, checklist
+4. [ ] Create TEMPLATE.md matching your instruction steps
+5. [ ] Write complete EXAMPLE.md (no placeholders!)
+6. [ ] Test with 3+ scenarios
+7. [ ] Update AGENTS.md
+8. [ ] Submit PR with checklist complete
+
+---
+
+*Part of [PM-Skills](https://github.com/product-on-purpose/pm-skills/blob/main/README.md) - Open source Product Management skills for AI agents*

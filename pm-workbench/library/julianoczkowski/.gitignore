@@ -1,0 +1,7 @@
+.DS_Store
+*.tmp.html
+
+# Demo media is uploaded manually to GitHub (asset CDN) so it renders inline in
+# the README — keep the large binaries out of git history.
+*.mp4
+*.gif

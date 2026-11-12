@@ -1,0 +1,199 @@
+name: Validate Plugin Packaging
+
+on:
+  # No `paths:` filter on pull_request, deliberately. `validate-plugin` is a
+  # REQUIRED status check in the `main Protection` ruleset. A required check that
+  # never reports leaves the PR permanently BLOCKED, with every visible check
+  # green and no failure to point at. A paths filter here deadlocked every
+  # site-only and root-package-only PR opened after 2026-07-05, including eight
+  # Dependabot PRs carrying open security alerts. The job runs in about 20
+  # seconds; running it on every PR costs far less than the deadlock.
+  # Do not add a paths filter here without first removing `validate-plugin` from
+  # the ruleset's required status checks.
+  pull_request:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+    paths:
+      - ".claude-plugin/**"
+      - ".codex-plugin/**"
+      - "skills/**"
+      - "commands/**"
+      - "scripts/build-release.sh"
+      - "scripts/build-release.ps1"
+      - ".github/workflows/validate-plugin.yml"
+      - ".github/workflows/release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install validator-tooling dependencies (root)
+        # The manifest-shape check uses only Node built-ins, but the skill-frontmatter
+        # validation step runs lint-skills-frontmatter, which needs js-yaml from the
+        # root tooling package. The docs-site deps (astro) are not needed here.
+        run: npm ci
+
+      - name: Validate plugin manifest shape
+        run: |
+          node - <<'NODE'
+          const fs = require("fs");
+
+          const path = ".claude-plugin/plugin.json";
+          if (!fs.existsSync(path)) {
+            console.error(`Missing ${path}`);
+            process.exit(1);
+          }
+
+          const manifest = JSON.parse(fs.readFileSync(path, "utf8"));
+          const requiredStringFields = ["name", "version", "description", "homepage", "repository", "license"];
+          for (const field of requiredStringFields) {
+            if (typeof manifest[field] !== "string" || manifest[field].trim().length === 0) {
+              console.error(`Invalid or missing string field: ${field}`);
+              process.exit(1);
+            }
+          }
+
+          if (manifest.name !== "pm-skills") {
+            console.error(`Expected manifest name 'pm-skills', got '${manifest.name}'`);
+            process.exit(1);
+          }
+
+          if (!/^\d+\.\d+\.\d+$/.test(manifest.version)) {
+            console.error(`Manifest version must be semver X.Y.Z, got '${manifest.version}'`);
+            process.exit(1);
+          }
+
+          if (!manifest.author || typeof manifest.author.name !== "string" || manifest.author.name.trim().length === 0) {
+            console.error("Manifest author.name is required");
+            process.exit(1);
+          }
+
+          if (!Array.isArray(manifest.keywords) || manifest.keywords.length === 0) {
+            console.error("Manifest keywords must be a non-empty array");
+            process.exit(1);
+          }
+          NODE
+
+      - name: Validate skill front matter
+        run: bash scripts/lint-skills-frontmatter.sh
+
+      - name: Validate AGENTS.md sync
+        run: bash scripts/validate-agents-md.sh
+
+      - name: Validate command mappings
+        run: bash scripts/validate-commands.sh
+
+      - name: Validate Cowork compatibility (ZIP under 50MB) and release stage contents
+        run: |
+          set -euo pipefail
+          chmod +x scripts/build-release.sh
+          ./scripts/build-release.sh 0.0.0-ci-check
+          ZIP_FILE="dist/pm-skills-v0.0.0-ci-check.zip"
+          if [[ ! -f "$ZIP_FILE" ]]; then
+            echo "::error::Release ZIP was not created"
+            exit 1
+          fi
+          ZIP_SIZE=$(stat -c%s "$ZIP_FILE" 2>/dev/null || stat -f%z "$ZIP_FILE")
+          ZIP_MB=$((ZIP_SIZE / 1048576))
+          echo "ZIP size: ${ZIP_SIZE} bytes (${ZIP_MB} MB)"
+          if (( ZIP_SIZE > 52428800 )); then
+            echo "::error::Plugin ZIP exceeds Cowork 50MB upload limit (${ZIP_MB} MB)"
+            exit 1
+          fi
+          echo "Cowork ZIP size check passed (${ZIP_MB} MB < 50 MB)"
+
+          # --- Release stage content assertions (WS-T2 packaging integrity) ---
+          # build-release leaves the staged tree at dist/stage. Assert it carries
+          # the runtime sub-agent docs and hooks the dispatch skills need at
+          # install time, and that the maintainer-only docs/internal tree did not
+          # leak into the consumer artifact.
+          STAGE="dist/stage"
+          if [[ ! -d "$STAGE" ]]; then
+            echo "::error::Release stage $STAGE not found"
+            exit 1
+          fi
+
+          # library.json declares the Standard edition and tier (since v2.35.0); a ZIP
+          # install without it reports the version but not the conformance claim.
+          if [[ ! -f "$STAGE/library.json" ]]; then
+            echo "::error::Missing staged library.json"
+            exit 1
+          fi
+
+          EXPECTED_AGENTS="pm-changelog-curator pm-critic pm-release-conductor pm-skill-auditor pm-skill-router pm-workflow-orchestrator"
+          for agent_name in $EXPECTED_AGENTS; do
+            if [[ ! -f "$STAGE/agents/$agent_name.md" ]]; then
+              echo "::error::Missing staged sub-agent doc: agents/$agent_name.md"
+              exit 1
+            fi
+          done
+          AGENT_MD_COUNT=$(find "$STAGE/agents" -maxdepth 1 -type f -name '*.md' | wc -l | tr -d ' ')
+          if [[ "$AGENT_MD_COUNT" != "6" ]]; then
+            echo "::error::Expected exactly 6 agents/*.md in the stage, found $AGENT_MD_COUNT"
+            find "$STAGE/agents" -maxdepth 1 -type f -name '*.md'
+            exit 1
+          fi
+
+          if [[ ! -f "$STAGE/hooks/hooks.json" ]]; then
+            echo "::error::Missing staged hooks manifest: hooks/hooks.json"
+            exit 1
+          fi
+
+          if [[ -e "$STAGE/docs/internal" ]]; then
+            echo "::error::docs/internal must be excluded from the release stage"
+            exit 1
+          fi
+
+          # Every agents/*.md a utility-pm-* dispatch skill reads must resolve in the stage.
+          MISSING=0
+          while IFS= read -r ref; do
+            [[ -z "$ref" ]] && continue
+            if [[ ! -f "$STAGE/$ref" ]]; then
+              echo "::error::Dispatch skill references $ref, which is not present in the stage"
+              MISSING=1
+            fi
+          done < <(find "$STAGE/skills" -maxdepth 2 -type f -name SKILL.md -path '*utility-pm-*' -exec grep -hoE 'agents/pm-[a-z-]+\.md' {} + 2>/dev/null | sort -u)
+          if [[ "$MISSING" != "0" ]]; then
+            exit 1
+          fi
+
+          echo "Release stage OK: 6 agent docs + hooks/hooks.json, no docs/internal, all dispatch refs resolve."
+          rm -rf dist/
+
+      - name: Lint plugin packaging policy
+        run: |
+          set -euo pipefail
+          grep -n "\.claude-plugin" scripts/build-release.sh scripts/build-release.ps1
+          grep -n "\.codex-plugin" scripts/build-release.sh scripts/build-release.ps1
+          grep -n "plugin.json" scripts/build-release.sh scripts/build-release.ps1
+
+      - name: Ensure tag and plugin version match
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          set -euo pipefail
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          MANIFEST_VERSION="$(node -p "JSON.parse(require('fs').readFileSync('.claude-plugin/plugin.json', 'utf8')).version")"
+          if [[ "$TAG_VERSION" != "$MANIFEST_VERSION" ]]; then
+            echo "::error::Tag version ($TAG_VERSION) does not match .claude-plugin/plugin.json version ($MANIFEST_VERSION)"
+            exit 1
+          fi
+          CODEX_VERSION="$(node -p "JSON.parse(require('fs').readFileSync('.codex-plugin/plugin.json', 'utf8')).version")"
+          if [[ "$TAG_VERSION" != "$CODEX_VERSION" ]]; then
+            echo "::error::Tag version ($TAG_VERSION) does not match .codex-plugin/plugin.json version ($CODEX_VERSION)"
+            exit 1
+          fi
