@@ -24,6 +24,8 @@ $pm-workbench 汇总访谈，提炼有证据支持的用户问题
 
 上游快照保存在 `pm-workbench/library/`。同步时所有大小写形式的 `SKILL.md` 均转换为 `METHOD.md`，Markdown 中的文件名引用同步调整。其余文件字节保留，原始版本可通过来源 commit 追溯。源代码工具中写死的 `SKILL.md` 路径仍按原样保留，运行上游维护工具时需使用原仓库或适配路径。
 
+上游 `.gitignore` 和 `.gitattributes` 分别保存为 `UPSTREAM.gitignore` 和 `UPSTREAM.gitattributes`，使快照文件完整提交并保持字节哈希一致。
+
 ```text
 pm-workbench/
 ├── SKILL.md                 唯一发现入口

@@ -35,5 +35,5 @@
     "linyindong/skills/platform-product-orchestrator/METHOD.md",
     "linyindong/skills/platform-rfc-reviewer/METHOD.md"
   ],
-  "transform": "Rename all upstream skill.md manifests to METHOD.md and update Markdown references; preserve other file bytes."
+  "transform": "Rename skill.md manifests to METHOD.md and update Markdown references; rename .gitattributes and .gitignore to UPSTREAM.gitattributes and UPSTREAM.gitignore to isolate upstream Git settings; preserve other file bytes."
 }

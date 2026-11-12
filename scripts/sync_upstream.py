@@ -37,6 +37,8 @@ def export_source(repo, commit, target):
             relative = Path(member.name)
             if relative.name.lower() == "skill.md":
                 relative = relative.with_name("METHOD.md")
+            if relative.name in (".gitattributes", ".gitignore"):
+                relative = relative.with_name("UPSTREAM" + relative.name)
             destination = (target / relative).resolve()
             if not destination.is_relative_to(target.resolve()):
                 raise ValueError(f"Unsafe archive path: {member.name}")
@@ -126,7 +128,7 @@ def main():
             "root": "../library",
             "sources": sources,
             "upstream_frontmatter_parse_warnings": warnings,
-            "transform": "Rename all upstream skill.md manifests to METHOD.md and update Markdown references; preserve other file bytes.",
+            "transform": "Rename skill.md manifests to METHOD.md and update Markdown references; rename .gitattributes and .gitignore to UPSTREAM.gitattributes and UPSTREAM.gitignore to isolate upstream Git settings; preserve other file bytes.",
         }
         references = staged_skill / "references"
         for filename, value in (("library.json", manifest), ("snapshots.json", snapshots)):

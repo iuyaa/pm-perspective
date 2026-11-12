@@ -25,6 +25,8 @@ class ExportTests(unittest.TestCase):
             ("skills/other/skill.md", b"# Other"),
             ("assets/example.bin", bytes(range(256))),
             ("LICENSE", b"original license"),
+            (".gitignore", b"assets/"),
+            (".gitattributes", b"* text=auto"),
         ]
         with tempfile.TemporaryDirectory() as temp, patch(
             "scripts.sync_upstream.git", return_value=archive_bytes(entries)
@@ -34,7 +36,9 @@ class ExportTests(unittest.TestCase):
             self.assertEqual((root / "skills/demo/METHOD.md").read_bytes(), b"[next](../other/METHOD.md)")
             self.assertEqual((root / "assets/example.bin").read_bytes(), bytes(range(256)))
             self.assertEqual((root / "LICENSE").read_bytes(), b"original license")
-            self.assertEqual(len(files), 4)
+            self.assertEqual((root / "UPSTREAM.gitignore").read_bytes(), b"assets/")
+            self.assertEqual((root / "UPSTREAM.gitattributes").read_bytes(), b"* text=auto")
+            self.assertEqual(len(files), 6)
             self.assertFalse(any(p.name.lower() == "skill.md" for p in root.rglob("*")))
 
     def test_rejects_path_traversal(self):
