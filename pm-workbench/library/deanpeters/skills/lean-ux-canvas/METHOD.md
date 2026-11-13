@@ -558,13 +558,13 @@ Mini example excerpt:
 ## References
 
 ### Related Skills
-- **[problem-statement](skills/problem-statement/METHOD.md)** (Component) — Frame problem before filling Box 1
-- **[problem-framing-canvas](skills/problem-framing-canvas/METHOD.md)** (Interactive) — MITRE Problem Framing before canvas
-- **[proto-persona](skills/proto-persona/METHOD.md)** (Component) — Create personas for Box 3
-- **[jobs-to-be-done](skills/jobs-to-be-done/METHOD.md)** (Component) — Identify user benefits for Box 4
-- **[epic-hypothesis](skills/epic-hypothesis/METHOD.md)** (Component) — Write testable hypotheses (Box 6)
-- **[discovery-interview-prep](skills/discovery-interview-prep/METHOD.md)** (Interactive) — Design customer interviews for Box 8
-- **[pol-probe-advisor](skills/pol-probe-advisor/METHOD.md)** (Interactive) — Choose experiment type for Box 8
+- **[problem-statement](../problem-statement/METHOD.md)** (Component) — Frame problem before filling Box 1
+- **[problem-framing-canvas](../problem-framing-canvas/METHOD.md)** (Interactive) — MITRE Problem Framing before canvas
+- **[proto-persona](../proto-persona/METHOD.md)** (Component) — Create personas for Box 3
+- **[jobs-to-be-done](../jobs-to-be-done/METHOD.md)** (Component) — Identify user benefits for Box 4
+- **[epic-hypothesis](../epic-hypothesis/METHOD.md)** (Component) — Write testable hypotheses (Box 6)
+- **[discovery-interview-prep](../discovery-interview-prep/METHOD.md)** (Interactive) — Design customer interviews for Box 8
+- **[pol-probe-advisor](../pol-probe-advisor/METHOD.md)** (Interactive) — Choose experiment type for Box 8
 
 ### External Frameworks
 - **Jeff Gothelf** — *Lean UX: Designing Great Products with Agile Teams* (O'Reilly, 2013; 2nd ed. 2016)

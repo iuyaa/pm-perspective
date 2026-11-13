@@ -464,7 +464,7 @@ saying "Level 2" and pasting what you have.
 - [`eol-message`](../eol-message/METHOD.md) — Phase 5
 - [`workshop-facilitation`](../workshop-facilitation/METHOD.md) — interaction protocol throughout
 - [`positioning-statement`](../positioning-statement/METHOD.md) — for the Phase 5 transition solution
-- [`stakeholder-map`](../stakeholder-map/METHOD.md) — general mapping, if Phase 2 needs breadth first
+- [`stakeholder-mapping`](../stakeholder-mapping/METHOD.md) — general mapping, if Phase 2 needs breadth first
 
 ### External Frameworks
 - Product Life Cycle (PLC) — EOL lives in the decline stage
