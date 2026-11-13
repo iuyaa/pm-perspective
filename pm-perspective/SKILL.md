@@ -1,5 +1,5 @@
 ---
-name: product-perspective
+name: pm-perspective
 description: 产品经理统一入口。用于业务需求澄清、内部平台与审批流程、PRD 编写和评审、MVP 取舍、产品探索、优先级、市场策略及指标验证，按场景加载专业方法。原型交互和视觉设计交给相应设计技能。
 ---
 

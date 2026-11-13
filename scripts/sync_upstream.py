@@ -18,7 +18,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "product-perspective"
+SKILL = ROOT / "pm-perspective"
 
 
 def git(repo, *args):
@@ -84,7 +84,7 @@ def main():
 
     with tempfile.TemporaryDirectory(prefix=".pm-upstream-", dir=ROOT) as temp:
         staging = Path(temp)
-        staged_skill = staging / "product-perspective"
+        staged_skill = staging / "pm-perspective"
         shutil.copytree(SKILL, staged_skill, ignore=shutil.ignore_patterns("library", "__pycache__"))
         staged_library = staged_skill / "library"
         sources, rows, warnings, snapshots = [], [], [], {}

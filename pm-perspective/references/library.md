@@ -20,7 +20,7 @@
 
 ## 安装结构
 
-安装整个 `product-perspective` 目录。该目录仅有入口 `SKILL.md`，专业方法保存在 `library/` 中，使用 `METHOD.md` 文件名。`library.json` 使用相对路径，复制或从 GitHub 安装后即可按需读取。同步脚本自动刷新快照、来源版本和索引，并验证单入口及路由完整性。
+安装整个 `pm-perspective` 目录。该目录仅有入口 `SKILL.md`，专业方法保存在 `library/` 中，使用 `METHOD.md` 文件名。`library.json` 使用相对路径，复制或从 GitHub 安装后即可按需读取。同步脚本自动刷新快照、来源版本和索引，并验证单入口及路由完整性。
 
 原库维护脚本中写死的 `SKILL.md` 路径保留原样，执行此类工具时使用原始仓库或先适配路径。方法与文档的按需读取使用快照中的 `METHOD.md`。
 
