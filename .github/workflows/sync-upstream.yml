@@ -26,12 +26,12 @@ jobs:
       - run: python -m pip install PyYAML==6.0.3
       - run: python -m unittest discover -s tests -v
       - run: python scripts/sync_upstream.py
-      - run: python pm-workbench/scripts/check_library.py
+      - run: python product-perspective/scripts/check_library.py
       - name: Commit validated snapshots
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- pm-workbench/library pm-workbench/references/library.json pm-workbench/references/snapshots.json pm-workbench/references/catalog.tsv
+          git add -- product-perspective/library product-perspective/references/library.json product-perspective/references/snapshots.json product-perspective/references/catalog.tsv
           if ! git diff --cached --quiet; then
             git commit -m 'chore: sync upstream product methods'
             git push origin HEAD:main
@@ -41,7 +41,7 @@ jobs:
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
           from pathlib import Path
-          manifest = json.loads(Path('pm-workbench/references/library.json').read_text())
+          manifest = json.loads(Path('product-perspective/references/library.json').read_text())
           print('## Synced upstream sources\n')
           for source in manifest['sources']:
               print(f"- {source['id']} — {source['skill_count']} methods at `{source['commit'][:12]}`")

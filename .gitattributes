@@ -5,5 +5,5 @@
 *.tsv text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
-pm-workbench/library/** -text
+product-perspective/library/** -text
 
