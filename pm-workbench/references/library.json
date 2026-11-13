@@ -1,11 +1,11 @@
 {
-  "checked_on": "2026-11-12",
+  "checked_on": "2026-11-13",
   "root": "../library",
   "sources": [
     {
       "id": "deanpeters",
       "url": "https://github.com/deanpeters/Product-Manager-Skills",
-      "commit": "cfcb697f14b8891d8b3ec43c16c3547df3e70e13",
+      "commit": "4ed3e864629d6d28104aa6eb0e9491f657d92b35",
       "skill_count": 77,
       "license": "CC-BY-NC-SA-4.0"
     },

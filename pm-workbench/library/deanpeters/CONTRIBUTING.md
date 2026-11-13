@@ -403,13 +403,16 @@ Your skill should pass these checks:
 - [ ] **Enumerated options:** 3-5 numbered choices per question
 - [ ] **Context-aware:** Options adapt based on previous answers
 - [ ] **Handles input gracefully:** User can pick numbers, combine options, or provide custom input
+- [ ] **Uses the facilitation protocol:** Links [`workshop-facilitation`](skills/workshop-facilitation/METHOD.md) as its interaction protocol *and* carries the `**Default entry mode:**` line (copy both from any advisor, e.g. `prioritization-advisor`). *Why:* the line is how the library-wide setting in `pm-skills.config.yaml` reaches a skill installed on its own. `validate-skills.sh` fails without it. See [Guided Context Capture](docs/guided-context-capture.md)
 
 ---
 
 ## 🎨 Writing Style Guide
 
+This section covers skill content. For reader-facing docs (README, install guides, the "Using PM Skills with…" guides), follow [Writing for Our Readers](docs/writing-for-our-readers.md): three readers, layered docs, and the first screen belongs to the least technical one.
+
 ### ✅ Do This:
-- Write like you're teaching a smart colleague (not a junior intern)
+- Write like you're teaching a smart, less experienced or emerging PM: explain the *why*, and never condescend
 - Use short sentences and active voice
 - Name tradeoffs (not just "best practices")
 - Include vivid labels when helpful ("feature factory," "HiPPO decision-making")
