@@ -2,9 +2,25 @@
 
 # Product Manager Skills
 
+**Ready-made PM skills for your AI assistant.** A *skill* is a short instruction file that teaches an AI how to do one PM job the way a pro would, such as writing a PRD or mapping stakeholders, so you stop re-explaining your process every time.
+
+## Try it in five minutes
+
+1. Download the [starter pack](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-skills-starter-pack.zip) and unzip it.
+2. In Claude, open **Settings → Capabilities → Skills** and upload one skill ZIP from inside the folder. Using Claude Code, Codex or something else? Jump to [Get Started](#get-started).
+3. Start a chat and paste this, swapping in your own details:
+
+```text
+Which of these skills fits what's on my desk this week? Here's the situation: [one or two sentences].
+```
+
+You should see Claude name the skill it is using and start asking you questions. Arriving empty-handed is fine: the skills ask for what they need.
+
+---
+
 [![GitHub stars](https://img.shields.io/github/stars/deanpeters/Product-Manager-Skills?style=flat-square)](https://github.com/deanpeters/Product-Manager-Skills/stargazers) [![GitHub forks](https://img.shields.io/github/forks/deanpeters/Product-Manager-Skills?style=flat-square)](https://github.com/deanpeters/Product-Manager-Skills/forks) [![GitHub watchers](https://img.shields.io/github/watchers/deanpeters/Product-Manager-Skills?style=flat-square)](https://github.com/deanpeters/Product-Manager-Skills/watchers) [![Contributors](https://img.shields.io/github/contributors/deanpeters/Product-Manager-Skills?style=flat-square)](https://github.com/deanpeters/Product-Manager-Skills/graphs/contributors) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 
-[![Version](https://img.shields.io/badge/version-v0.84-blue?style=flat-square)](https://github.com/deanpeters/Product-Manager-Skills/releases/latest) ![Skills](https://img.shields.io/badge/skills-78-informational?style=flat-square) [![Last commit](https://img.shields.io/github/last-commit/deanpeters/Product-Manager-Skills?style=flat-square)](https://github.com/deanpeters/Product-Manager-Skills/commits/main) [![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin%20Marketplace-5C4EE5?style=flat-square)](https://code.claude.com/docs/en/plugin-marketplaces)
+[![Version](https://img.shields.io/badge/version-v0.86-blue?style=flat-square)](https://github.com/deanpeters/Product-Manager-Skills/releases/latest) ![Skills](https://img.shields.io/badge/skills-95-informational?style=flat-square) [![Last commit](https://img.shields.io/github/last-commit/deanpeters/Product-Manager-Skills?style=flat-square)](https://github.com/deanpeters/Product-Manager-Skills/commits/main) [![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin%20Marketplace-5C4EE5?style=flat-square)](https://code.claude.com/docs/en/plugin-marketplaces)
 
 ```text
 ╔════════════════════════════════════════════════════════════════════╗
@@ -16,16 +32,17 @@
 ║   ██║     ██║ ╚═╝ ██║    ███████║██║  ██╗██║███████╗███████╗███████║
 ║   ╚═╝     ╚═╝     ╚═╝    ╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝
 ║                                                                    ║
-║   78 battle-tested skills + 6 command workflows                    ║
+║   95 battle-tested skills + 6 command workflows                    ║
 ║   Claude Code • Cursor • Codex  • n8n • OpenClaw • and more ...    ║
 ║                                                                    ║
-║   v0.84 • August 10, 2026 • CC BY-NC-SA 4.0                        ║
+║   v0.86 • November 13, 2026 • CC BY-NC-SA 4.0                      ║
 ╚════════════════════════════════════════════════════════════════════╝
 ```
 
-**78 battle-tested PM frameworks, ready for Claude, Codex, ChatGPT, and any agent that can read structured knowledge.**
+**95 battle-tested PM frameworks, ready for Claude, Codex, ChatGPT, and any agent that can read structured knowledge.**
 
 ---
+
 
 ## Why This Exists
 
@@ -34,6 +51,116 @@ Generic AI output is a PM's worst enemy. When you tell your agent "write a PRD" 
 This library gives both you and your AI agent the same professional foundation: the *why* behind each framework, the failure modes to avoid, and the judgment to apply them correctly. You stop repeating yourself. Your agent stops guessing. The work gets better.
 
 **The goal is dual — functional and pedagogic in equal measure.** Skills equip agents to do PM work at a professional level, and they teach the human PM the reasoning behind each framework — so you can explain it, adapt it, and pass it on. Neither is a byproduct of the other.
+
+
+---
+
+## Get Started
+
+Choose your setup:
+
+| I use... | Get this | Notes |
+|---|---|---|
+| Claude Desktop or Claude Web | [`pm-skills-starter-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-skills-starter-pack.zip) | Unzip, then upload the individual skill ZIPs to Claude Skills |
+| Claude Code | Plugin marketplace | `/plugin marketplace add deanpeters/Product-Manager-Skills`, then `/plugin install product-manager-skills@pm-skills` for everything, or one lifecycle bundle at a time (see [Browse by lifecycle](#browse-by-lifecycle)) |
+| Codex | [`pm-skills-codex.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-skills-codex.zip) | Installs `.agents/skills` and `AGENTS.md` |
+| OpenCode | Copy `skills/*` to `~/.config/opencode/skills/` (or reuse the Codex ZIP) | OpenCode reads our `METHOD.md` format as-is. See the [install guide](docs/INSTALL-OPENCODE.md) |
+| Not sure | [`pm-skills-starter-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-skills-starter-pack.zip) | Start here |
+
+**All downloads:** [GitHub Releases](https://github.com/deanpeters/Product-Manager-Skills/releases/latest)
+
+### Start here by situation
+
+Don't know where to begin? Find the line that sounds like your week. Each route is **a suggested order, not a pipeline** — every skill runs on its own, so skip ahead, reorder, or stop after one. The first prompt is real: paste it, swap in your details, and go.
+
+| If this is you... | Try, in this order | Time | Paste this first |
+|---|---|---|---|
+| **"I have an idea and I don't know if it's real."** | [problem-framing-canvas](skills/problem-framing-canvas/METHOD.md) → [discovery-interview-prep](skills/discovery-interview-prep/METHOD.md) → [pol-probe-advisor](skills/pol-probe-advisor/METHOD.md) | ~1–1.5 hr | `Frame this problem: field sales reps 'don't use the CRM' and leadership wants gamification.` |
+| **"A request or mandate just landed on my desk."** | [incoming-request-advisor](skills/incoming-request-advisor/METHOD.md) → [stakeholder-mapping](skills/stakeholder-mapping/METHOD.md) → [prioritization-advisor](skills/prioritization-advisor/METHOD.md) | ~1 hr | `My VP DM'd me: "Any chance the dashboard redesign lands next sprint? Board's asking." Analyze this before I reply.` |
+| **"I need to understand the market, fast."** | [market-landscape-scan](skills/market-landscape-scan/METHOD.md) → [competitive-research-snapshot](skills/competitive-research-snapshot/METHOD.md) → [swot-analysis](skills/swot-analysis/METHOD.md) | ~1–2 hr | `Run a market landscape scan on [your market], and tell me the decision it should support.` |
+| **"We keep getting compared and losing."** | [positioning-workshop](skills/positioning-workshop/METHOD.md) → [roadmap-planning](skills/roadmap-planning/METHOD.md) *(going bigger: [product-strategy-session](skills/product-strategy-session/METHOD.md), a 2–4 week workflow)* | ~2–3 hr | `Run a positioning workshop for our API monitoring tool — we keep getting compared to Datadog and losing.` |
+| **"Time to write it down."** | [prd-development](skills/prd-development/METHOD.md) → [epic-breakdown-advisor](skills/epic-breakdown-advisor/METHOD.md) → [user-story](skills/user-story/METHOD.md) | ~1.5–3 hr | `Build a PRD for self-serve workspace provisioning — here are my discovery notes and the OKR it ladders to.` |
+| **"Our product is getting old."** | [lifecycle-play-advisor](skills/lifecycle-play-advisor/METHOD.md) → [eol-readiness-advisor](skills/eol-readiness-advisor/METHOD.md) → [eol-process](skills/eol-process/METHOD.md) | ~30–50 min to a decision | `Help me decide what to do with [product]. Here's what makes me think it's fading: [signals].` |
+| **"I'm stepping up a level."** | [director-readiness-advisor](skills/director-readiness-advisor/METHOD.md) *or* [vp-cpo-readiness-advisor](skills/vp-cpo-readiness-advisor/METHOD.md) — pick by where you're headed | ~10–20 min | `I'm 60 days into a Director role and my old peers now report to me — it's awkward and I'm still doing PM work. Coach me.` |
+| **"I'm new here, or not sure."** | The [Starter pack](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-skills-starter-pack.zip) — six skills across the craft | — | Install it, then ask: `Which of these skills fits what's on my desk this week?` |
+
+**Why these orders (so you can break them on purpose):**
+
+- **Idea → problem → people → probe.** Name the problem before you ask anyone about it, and ask people before you build anything. The probe comes last because it's the most expensive of the three.
+- **Request → decode → map → decide.** Understand what's really being asked before replying, know who else is in the room, *then* ask where it fits. Prioritizing first is how a loud VP becomes your roadmap.
+- **Market → competitors → SWOT.** Evidence first, framework last. SWOT on top of no research is opinion with a 2×2 around it.
+- **Positioning → roadmap.** Decide who you're for and why you win before choosing what to build. The strategy session is the full-length version when the question is bigger than a quarter.
+- **PRD → epics → stories.** The *why* first, then slices, then the smallest writeable pieces. Writing stories first is how a backlog loses its reason.
+- **Aging → play → readiness → process.** The first skill may say **"nothing yet"** — extending or harvesting is a legitimate answer, and starting here does not commit you to a sunset.
+
+### Browse by lifecycle
+
+Product work unfolds in an order: set the outcome before you investigate, investigate before you define, define before you build. The library follows that arc in five bundles, with a sixth that runs underneath all of them. It's a cycle, not a pipeline, so you will loop back, and every skill still runs on its own.
+
+| Bundle | The question it answers | Start with | Claude Code install |
+|---|---|---|---|
+| **Determine** | What are we trying to achieve, and what is the market doing? | [product-strategy-session](skills/product-strategy-session/METHOD.md), [market-landscape-scan](skills/market-landscape-scan/METHOD.md), [business-health-diagnostic](skills/business-health-diagnostic/METHOD.md) | `/plugin install pm-determine@pm-skills` |
+| **Discover** | What is the real problem? | [problem-framing-canvas](skills/problem-framing-canvas/METHOD.md), [discovery-interview-prep](skills/discovery-interview-prep/METHOD.md) | `/plugin install pm-discover@pm-skills` |
+| **Define** | Is this solution worth building, and how do we position it? | [pol-probe-advisor](skills/pol-probe-advisor/METHOD.md), [positioning-statement](skills/positioning-statement/METHOD.md) | `/plugin install pm-define@pm-skills` |
+| **Develop** | How do we turn the chosen solution into buildable work? | [prd-development](skills/prd-development/METHOD.md), [user-story](skills/user-story/METHOD.md), [prioritization-advisor](skills/prioritization-advisor/METHOD.md) | `/plugin install pm-develop@pm-skills` |
+| **Deliver** | How do we price it, take it to market, and retire it well? | [finance-based-pricing-advisor](skills/finance-based-pricing-advisor/METHOD.md), [lifecycle-play-advisor](skills/lifecycle-play-advisor/METHOD.md) | `/plugin install pm-deliver@pm-skills` |
+| **Drive** | How do I work with stakeholders and grow my career? | [stakeholder-mapping](skills/stakeholder-mapping/METHOD.md), [director-readiness-advisor](skills/director-readiness-advisor/METHOD.md) | `/plugin install pm-drive@pm-skills` |
+
+**Not sure which bundle?** Ask the [pm-skills-navigator](skills/pm-skills-navigator/METHOD.md): describe what's on your desk, and in about five minutes it tells you where the work really is and which skill to open first.
+
+Every bundle includes a few shared helper skills (the facilitation rulebook and the navigator among them), so each works installed alone. The full list, grouped by bundle and by the smaller "motions" inside each, is in [catalog/skills-by-bundle.md](catalog/skills-by-bundle.md).
+
+*Why this order?* Skipping ahead is how teams build the right thing for the wrong problem. Naming the outcome first gives discovery a target, and discovery gives definition something real to test.
+
+**On Claude Desktop or Web?** Download the bundle pack that matches your phase, or grab single skills from the [download shelf](dist/).
+
+### Lifecycle bundle packs for Claude Desktop / Web
+
+Each pack is a ZIP of upload-ready skill ZIPs. Unzip it, then upload the skills to Claude Skills:
+
+| Pack | Download | What's inside |
+|---|---|---|
+| Starter | [`pm-skills-starter-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-skills-starter-pack.zip) | Six core skills across the craft. The best first download |
+| Determine | [`pm-determine-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-determine-pack.zip) | Strategy, finance, market intelligence, customer context (24 skills) |
+| Discover | [`pm-discover-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-discover-pack.zip) | Interviews, surveys, usage data, synthesis, assumptions, problem framing, opportunity trees, journey maps (12 skills) |
+| Define | [`pm-define-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-define-pack.zip) | Hypotheses, probes, experiments, positioning (9 skills) |
+| Develop | [`pm-develop-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-develop-pack.zip) | PRDs, stories, prioritization, roadmaps, sprint and release rituals, AI agents (16 skills) |
+| Deliver | [`pm-deliver-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-deliver-pack.zip) | Launch plans, messaging, sales enablement, pricing, channels, post-launch metrics, activation and retention, and the end-of-life suite (18 skills) |
+| Drive | [`pm-drive-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-drive-pack.zip) | Stakeholders, decision rights, influence, and career transitions (11 skills) |
+| All skills | [`99-all-skills-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/99-all-skills-pack.zip) | All 95 skills |
+
+The older themed packs (`02-discovery` through `07-lifecycle-eol`) were retired in v0.86. Every skill in them lives in a lifecycle pack above.
+
+### Install guides
+
+- [Claude Desktop / Web](docs/INSTALL-CLAUDE-DESKTOP.md)
+- [Claude Code](docs/INSTALL-CLAUDE-CODE.md)
+- [Codex](docs/INSTALL-CODEX.md)
+- [OpenCode](docs/INSTALL-OPENCODE.md)
+- [Platform chooser for non-technical PMs](docs/PM%20Skills%20Rule-of-Thumb%20Guide.md)
+
+---
+
+
+## Try It First — Streamlit (beta)
+
+Not ready to wire skills into your agent setup? Run the local playground first and kick the tires in your browser.
+
+```bash
+pip install -r app/requirements.txt
+streamlit run app/main.py
+```
+
+What you can do:
+- **Learn** — browse setup and integration paths without leaving the app
+- **Find My Skill** — describe your situation in plain English and get recommended skills
+- **Run Skills** — run a skill with your own scenario once you know what you want
+
+Multi-provider support: Anthropic, OpenAI, Ollama. API keys via environment variables only (no in-app key entry).
+
+Docs: [`app/STREAMLIT_INTERFACE.md`](app/STREAMLIT_INTERFACE.md) · [`app/.env.example`](app/.env.example)
+
+Feedback welcome via [GitHub Issues](https://github.com/deanpeters/Product-Manager-Skills/issues) or [LinkedIn](https://linkedin.com/in/deanpeters).
 
 ---
 
@@ -97,135 +224,28 @@ Navigate by what you're actually trying to accomplish:
 - [context-engineering-advisor](skills/context-engineering-advisor/METHOD.md) — diagnoses context stuffing vs. context engineering and guides memory architecture for AI-powered products
 - [agent-orchestration-advisor](skills/agent-orchestration-advisor/METHOD.md) — guides multi-agent workflow design across four dimensions
 
----
-
-## Get Started
-
-Choose your setup:
-
-| I use... | Get this | Notes |
-|---|---|---|
-| Claude Desktop or Claude Web | [`pm-skills-starter-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-skills-starter-pack.zip) | Unzip, then upload the individual skill ZIPs to Claude Skills |
-| Claude Code | Plugin marketplace | `/plugin marketplace add deanpeters/Product-Manager-Skills`, then `/plugin install product-manager-skills@pm-skills` for everything, or one lifecycle bundle at a time (see [Browse by lifecycle](#browse-by-lifecycle)) |
-| Codex | [`pm-skills-codex.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-skills-codex.zip) | Installs `.agents/skills` and `AGENTS.md` |
-| OpenCode | Copy `skills/*` to `~/.config/opencode/skills/` (or reuse the Codex ZIP) | OpenCode reads our `METHOD.md` format as-is. See the [install guide](docs/INSTALL-OPENCODE.md) |
-| Not sure | [`pm-skills-starter-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-skills-starter-pack.zip) | Start here |
-
-**All downloads:** [GitHub Releases](https://github.com/deanpeters/Product-Manager-Skills/releases/latest)
-
-### Start here by situation
-
-Don't know where to begin? Find the line that sounds like your week. Each route is **a suggested order, not a pipeline** — every skill runs on its own, so skip ahead, reorder, or stop after one. The first prompt is real: paste it, swap in your details, and go.
-
-| If this is you... | Try, in this order | Time | Paste this first |
-|---|---|---|---|
-| **"I have an idea and I don't know if it's real."** | [problem-framing-canvas](skills/problem-framing-canvas/METHOD.md) → [discovery-interview-prep](skills/discovery-interview-prep/METHOD.md) → [pol-probe-advisor](skills/pol-probe-advisor/METHOD.md) | ~1–1.5 hr | `Frame this problem: field sales reps 'don't use the CRM' and leadership wants gamification.` |
-| **"A request or mandate just landed on my desk."** | [incoming-request-advisor](skills/incoming-request-advisor/METHOD.md) → [stakeholder-mapping](skills/stakeholder-mapping/METHOD.md) → [prioritization-advisor](skills/prioritization-advisor/METHOD.md) | ~1 hr | `My VP DM'd me: "Any chance the dashboard redesign lands next sprint? Board's asking." Analyze this before I reply.` |
-| **"I need to understand the market, fast."** | [market-landscape-scan](skills/market-landscape-scan/METHOD.md) → [competitive-research-snapshot](skills/competitive-research-snapshot/METHOD.md) → [swot-analysis](skills/swot-analysis/METHOD.md) | ~1–2 hr | `Run a market landscape scan on [your market], and tell me the decision it should support.` |
-| **"We keep getting compared and losing."** | [positioning-workshop](skills/positioning-workshop/METHOD.md) → [roadmap-planning](skills/roadmap-planning/METHOD.md) *(going bigger: [product-strategy-session](skills/product-strategy-session/METHOD.md), a 2–4 week workflow)* | ~2–3 hr | `Run a positioning workshop for our API monitoring tool — we keep getting compared to Datadog and losing.` |
-| **"Time to write it down."** | [prd-development](skills/prd-development/METHOD.md) → [epic-breakdown-advisor](skills/epic-breakdown-advisor/METHOD.md) → [user-story](skills/user-story/METHOD.md) | ~1.5–3 hr | `Build a PRD for self-serve workspace provisioning — here are my discovery notes and the OKR it ladders to.` |
-| **"Our product is getting old."** | [lifecycle-play-advisor](skills/lifecycle-play-advisor/METHOD.md) → [eol-readiness-advisor](skills/eol-readiness-advisor/METHOD.md) → [eol-process](skills/eol-process/METHOD.md) | ~30–50 min to a decision | `Help me decide what to do with [product]. Here's what makes me think it's fading: [signals].` |
-| **"I'm stepping up a level."** | [director-readiness-advisor](skills/director-readiness-advisor/METHOD.md) *or* [vp-cpo-readiness-advisor](skills/vp-cpo-readiness-advisor/METHOD.md) — pick by where you're headed | ~10–20 min | `I'm 60 days into a Director role and my old peers now report to me — it's awkward and I'm still doing PM work. Coach me.` |
-| **"I'm new here, or not sure."** | The [Starter pack](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-skills-starter-pack.zip) — six skills across the craft | — | Install it, then ask: `Which of these skills fits what's on my desk this week?` |
-
-**Why these orders (so you can break them on purpose):**
-
-- **Idea → problem → people → probe.** Name the problem before you ask anyone about it, and ask people before you build anything. The probe comes last because it's the most expensive of the three.
-- **Request → decode → map → decide.** Understand what's really being asked before replying, know who else is in the room, *then* ask where it fits. Prioritizing first is how a loud VP becomes your roadmap.
-- **Market → competitors → SWOT.** Evidence first, framework last. SWOT on top of no research is opinion with a 2×2 around it.
-- **Positioning → roadmap.** Decide who you're for and why you win before choosing what to build. The strategy session is the full-length version when the question is bigger than a quarter.
-- **PRD → epics → stories.** The *why* first, then slices, then the smallest writeable pieces. Writing stories first is how a backlog loses its reason.
-- **Aging → play → readiness → process.** The first skill may say **"nothing yet"** — extending or harvesting is a legitimate answer, and starting here does not commit you to a sunset.
-
-### Browse by lifecycle
-
-Product work unfolds in an order: set the outcome before you investigate, investigate before you define, define before you build. The library follows that arc in five bundles, with a sixth that runs underneath all of them. It's a cycle, not a pipeline, so you will loop back, and every skill still runs on its own.
-
-| Bundle | The question it answers | Start with | Claude Code install |
-|---|---|---|---|
-| **Determine** | What are we trying to achieve, and what is the market doing? | [product-strategy-session](skills/product-strategy-session/METHOD.md), [market-landscape-scan](skills/market-landscape-scan/METHOD.md), [business-health-diagnostic](skills/business-health-diagnostic/METHOD.md) | `/plugin install pm-determine@pm-skills` |
-| **Discover** | What is the real problem? | [problem-framing-canvas](skills/problem-framing-canvas/METHOD.md), [discovery-interview-prep](skills/discovery-interview-prep/METHOD.md) | `/plugin install pm-discover@pm-skills` |
-| **Define** | Is this solution worth building, and how do we position it? | [pol-probe-advisor](skills/pol-probe-advisor/METHOD.md), [positioning-statement](skills/positioning-statement/METHOD.md) | `/plugin install pm-define@pm-skills` |
-| **Develop** | How do we turn the chosen solution into buildable work? | [prd-development](skills/prd-development/METHOD.md), [user-story](skills/user-story/METHOD.md), [prioritization-advisor](skills/prioritization-advisor/METHOD.md) | `/plugin install pm-develop@pm-skills` |
-| **Deliver** | How do we price it, take it to market, and retire it well? | [finance-based-pricing-advisor](skills/finance-based-pricing-advisor/METHOD.md), [lifecycle-play-advisor](skills/lifecycle-play-advisor/METHOD.md) | `/plugin install pm-deliver@pm-skills` |
-| **Drive** | How do I work with stakeholders and grow my career? | [stakeholder-mapping](skills/stakeholder-mapping/METHOD.md), [director-readiness-advisor](skills/director-readiness-advisor/METHOD.md) | `/plugin install pm-drive@pm-skills` |
-
-**Not sure which bundle?** Ask the [pm-skills-navigator](skills/pm-skills-navigator/METHOD.md): describe what's on your desk, and in about five minutes it tells you where the work really is and which skill to open first.
-
-Every bundle includes a few shared helper skills (the facilitation rulebook and the navigator among them), so each works installed alone. Deliver is still growing: launch planning and post-launch measurement are on the way. The full list, grouped by bundle and by the smaller "motions" inside each, is in [catalog/skills-by-bundle.md](catalog/skills-by-bundle.md).
-
-*Why this order?* Skipping ahead is how teams build the right thing for the wrong problem. Naming the outcome first gives discovery a target, and discovery gives definition something real to test.
-
-**On Claude Desktop or Web?** Download the bundle pack that matches your phase, or grab single skills from the [download shelf](dist/).
-
-### Lifecycle bundle packs for Claude Desktop / Web
-
-Each pack is a ZIP of upload-ready skill ZIPs. Unzip it, then upload the skills to Claude Skills:
-
-| Pack | Download | What's inside |
-|---|---|---|
-| Starter | [`pm-skills-starter-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-skills-starter-pack.zip) | Six core skills across the craft. The best first download |
-| Determine | [`pm-determine-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-determine-pack.zip) | Strategy, finance, market intelligence, customer context (24 skills) |
-| Discover | [`pm-discover-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-discover-pack.zip) | Interviews, problem framing, opportunity trees, journey maps (7 skills) |
-| Define | [`pm-define-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-define-pack.zip) | Hypotheses, probes, experiments, positioning (9 skills) |
-| Develop | [`pm-develop-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-develop-pack.zip) | PRDs, stories, prioritization, roadmaps, AI agents (13 skills) |
-| Deliver | [`pm-deliver-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-deliver-pack.zip) | Pricing, channels, and the full lifecycle and end-of-life suite (11 skills) |
-| Drive | [`pm-drive-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/pm-drive-pack.zip) | Stakeholders, influence, and career transitions (9 skills) |
-| All skills | [`99-all-skills-pack.zip`](https://github.com/deanpeters/Product-Manager-Skills/releases/latest/download/99-all-skills-pack.zip) | All 78 skills |
-
-The older themed packs (`02-discovery` through `07-lifecycle-eol`) are still on the [download shelf](dist/) for one more release, then retire.
-
-### Install guides
-
-- [Claude Desktop / Web](docs/INSTALL-CLAUDE-DESKTOP.md)
-- [Claude Code](docs/INSTALL-CLAUDE-CODE.md)
-- [Codex](docs/INSTALL-CODEX.md)
-- [OpenCode](docs/INSTALL-OPENCODE.md)
-- [Platform chooser for non-technical PMs](docs/PM%20Skills%20Rule-of-Thumb%20Guide.md)
 
 ---
 
-## Try It First — Streamlit (beta)
-
-Not ready to wire skills into your agent setup? Run the local playground first and kick the tires in your browser.
-
-```bash
-pip install -r app/requirements.txt
-streamlit run app/main.py
-```
-
-What you can do:
-- **Learn** — browse setup and integration paths without leaving the app
-- **Find My Skill** — describe your situation in plain English and get recommended skills
-- **Run Skills** — run a skill with your own scenario once you know what you want
-
-Multi-provider support: Anthropic, OpenAI, Ollama. API keys via environment variables only (no in-app key entry).
-
-Docs: [`app/STREAMLIT_INTERFACE.md`](app/STREAMLIT_INTERFACE.md) · [`app/.env.example`](app/.env.example)
-
-Feedback welcome via [GitHub Issues](https://github.com/deanpeters/Product-Manager-Skills/issues) or [LinkedIn](https://linkedin.com/in/deanpeters).
-
----
-
-## 78 Skills, 3 Types
+## 95 Skills, 3 Types
 
 Skills are organized in three tiers that build on each other:
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│  WORKFLOW SKILLS (20)                                  │
+│  WORKFLOW SKILLS (25)                                  │
 │  Complete end-to-end PM processes (days to weeks)      │
 │  Example: run a full discovery cycle or write a PRD    │
 └────────────────────────────────────────────────────────┘
                        ↓ orchestrates
 ┌────────────────────────────────────────────────────────┐
-│  INTERACTIVE SKILLS (30)                               │
+│  INTERACTIVE SKILLS (34)                               │
 │  Guided discovery — 3-5 questions, then recommendations│
 │  Example: "Which prioritization framework fits here?"  │
 └────────────────────────────────────────────────────────┘
                        ↓ uses
 ┌────────────────────────────────────────────────────────┐
-│  COMPONENT SKILLS (28)                                 │
+│  COMPONENT SKILLS (36)                                 │
 │  Templates for specific PM deliverables (30-90 min)    │
 │  Example: write a user story with acceptance criteria  │
 └────────────────────────────────────────────────────────┘
@@ -233,7 +253,7 @@ Skills are organized in three tiers that build on each other:
 
 **Interactive skills use an Adaptive Decision Ladder.** Instead of dumping a framework at you, an interactive skill asks 3-5 targeted questions about your specific context, then offers numbered recommendations — each with a clear "use this when" rationale. You pick a path. The skill executes it and explains the *why* as it goes. If you want to just learn the framework without doing the work, you can ask that too — the skill coaches you either way. This is ABC — Always Be Coaching — in practice.
 
-**Full catalog:** [by type](catalog/skills-by-type.md) or [by lifecycle bundle](catalog/skills-by-bundle.md), all 78 skills with descriptions, or browse `skills/` directly.
+**Full catalog:** [by type](catalog/skills-by-type.md) or [by lifecycle bundle](catalog/skills-by-bundle.md), all 95 skills with descriptions, or browse `skills/` directly.
 
 ---
 
@@ -287,6 +307,20 @@ See [docs/Platform Guides for PMs.md](docs/Platform%20Guides%20for%20PMs.md) for
 ---
 
 ## What's New
+
+**v0.86 — November 13, 2026 · The Everyday Work of Product, Now on the Map**
+- **12 new skills fill the map:** Discover gains *Dig* ([`survey-design-advisor`](skills/survey-design-advisor/METHOD.md), [`usage-data-investigation`](skills/usage-data-investigation/METHOD.md), [`discovery-habits-advisor`](skills/discovery-habits-advisor/METHOD.md)) and *Decode* ([`research-synthesis`](skills/research-synthesis/METHOD.md), [`assumption-mapping`](skills/assumption-mapping/METHOD.md)); Develop gains *Drumbeat* ([`backlog-refinement-advisor`](skills/backlog-refinement-advisor/METHOD.md), [`sprint-planning`](skills/sprint-planning/METHOD.md), [`release-readiness`](skills/release-readiness/METHOD.md)); Drive gains *Delineate* ([`decision-rights-matrix`](skills/decision-rights-matrix/METHOD.md), [`pm-role-charter`](skills/pm-role-charter/METHOD.md)); Deliver gains *Deepen* ([`activation-design`](skills/activation-design/METHOD.md), [`retention-diagnostic-advisor`](skills/retention-diagnostic-advisor/METHOD.md))
+- **Pick your slice, not all 95:** agents are converging on installable plugins and bundles, so the lifecycle bundles let you install what matches your work
+- **Easier to start:** a five-minute path on the README's first screen, a layered `START_HERE.md`, a clearer Desktop install, and a docs style guard
+- **Older packs `02`-`07` retired;** every skill in them lives in a lifecycle bundle
+- Library at **95 skills** · full story in the [release note](docs/announcements/2026-11-13-v0-86-the-everyday-work-of-product.md)
+
+**v0.85 — November 13, 2026 · Lifecycle Bundles, a Navigator, and the Go-to-Market Gap Filled**
+- **Six installable lifecycle bundles** that follow the product arc: Determine, Discover, Define, Develop, Deliver, plus Drive (stakeholders and career) underneath. Install one with `/plugin install pm-define@pm-skills`, or download its pack for Claude Desktop. Every skill still runs on its own
+- **[`pm-skills-navigator`](skills/pm-skills-navigator/METHOD.md):** describe what's on your desk and get routed to the right phase and skill
+- **Go-to-market, filled:** [`launch-plan`](skills/launch-plan/METHOD.md), [`launch-metrics`](skills/launch-metrics/METHOD.md), [`message-house`](skills/message-house/METHOD.md), [`sales-value-narrative`](skills/sales-value-narrative/METHOD.md), [`buying-journey-enablement`](skills/buying-journey-enablement/METHOD.md)
+- Also: [`LICENSING.md`](LICENSING.md), an [OpenCode install guide](docs/INSTALL-OPENCODE.md), and drift guards for prose counts
+- Library now at **83 skills** · full story in the [release note](docs/announcements/2026-11-13-v0-85-lifecycle-bundles.md)
 
 **v0.84 — August 10, 2026 · The Lifecycle & End-of-Life Suite**
 - **7 new skills + 1 upgrade** for the part of product management nobody trains you on: what to do with a product that has stopped growing, and how to retire one without losing the customer

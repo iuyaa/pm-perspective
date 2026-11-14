@@ -130,6 +130,8 @@ This block is generated from `pm-skills.config.yaml`. Don't edit it here; run
 **Discover** (Discover + Investigate): Find and frame the real problem.
 
 - **Drill-down** (Interviews, problem framing, opportunity solution trees, journey maps): [`discovery-interview-prep`](../discovery-interview-prep/METHOD.md), [`discovery-process`](../discovery-process/METHOD.md), [`opportunity-solution-tree`](../opportunity-solution-tree/METHOD.md), [`problem-framing-canvas`](../problem-framing-canvas/METHOD.md), [`problem-statement`](../problem-statement/METHOD.md), [`customer-journey-map`](../customer-journey-map/METHOD.md), [`customer-journey-mapping-workshop`](../customer-journey-mapping-workshop/METHOD.md)
+- **Dig** (Collect evidence: surveys, usage data, a steady customer-contact habit): [`survey-design-advisor`](../survey-design-advisor/METHOD.md), [`usage-data-investigation`](../usage-data-investigation/METHOD.md), [`discovery-habits-advisor`](../discovery-habits-advisor/METHOD.md)
+- **Decode** (Make sense of it: synthesis and assumption mapping): [`research-synthesis`](../research-synthesis/METHOD.md), [`assumption-mapping`](../assumption-mapping/METHOD.md)
 
 **Define** (Discover + Define): Shape a solution worth building and test the bet.
 
@@ -142,19 +144,22 @@ This block is generated from `pm-skills.config.yaml`. Don't edit it here; run
 - **Draft** (User stories, splitting, story mapping, epic breakdown): [`user-story`](../user-story/METHOD.md), [`user-story-splitting`](../user-story-splitting/METHOD.md), [`user-story-mapping`](../user-story-mapping/METHOD.md), [`user-story-mapping-workshop`](../user-story-mapping-workshop/METHOD.md), [`epic-breakdown-advisor`](../epic-breakdown-advisor/METHOD.md)
 - **Decide** (Prioritization and roadmaps): [`prioritization-advisor`](../prioritization-advisor/METHOD.md), [`roadmap-planning`](../roadmap-planning/METHOD.md)
 - **Delegate** (Work with AI agents: orchestration, context engineering, readiness): [`agent-orchestration-advisor`](../agent-orchestration-advisor/METHOD.md), [`ai-shaped-readiness-advisor`](../ai-shaped-readiness-advisor/METHOD.md), [`context-engineering-advisor`](../context-engineering-advisor/METHOD.md)
+- **Drumbeat** (Execution rhythm: backlog refinement, sprint planning, release readiness): [`backlog-refinement-advisor`](../backlog-refinement-advisor/METHOD.md), [`sprint-planning`](../sprint-planning/METHOD.md), [`release-readiness`](../release-readiness/METHOD.md)
 
 **Deliver** (Deliver): Take it to market, measure it, and retire it well.
 
-- **Debut** (Launch planning and messaging): *Coming: GAP: launch plan, message house, sales narrative, buying journey, launch metrics (source: PM-Star go-to-market)*
+- **Debut** (Launch planning and messaging): [`launch-plan`](../launch-plan/METHOD.md), [`message-house`](../message-house/METHOD.md), [`sales-value-narrative`](../sales-value-narrative/METHOD.md), [`buying-journey-enablement`](../buying-journey-enablement/METHOD.md)
 - **Dollars** (Pricing and packaging): [`finance-based-pricing-advisor`](../finance-based-pricing-advisor/METHOD.md), [`pricing-packaging-tracker`](../pricing-packaging-tracker/METHOD.md)
 - **Demand** (Channels and acquisition): [`acquisition-channel-advisor`](../acquisition-channel-advisor/METHOD.md)
-- **Dashboard** (Measure outcomes after launch): *Coming: GAP: metrics review, outcome tracking (source: PM-Star launch metrics)*
+- **Dashboard** (Measure outcomes after launch): [`launch-metrics`](../launch-metrics/METHOD.md)
+- **Deepen** (Keep customers and grow them: activation and retention): [`activation-design`](../activation-design/METHOD.md), [`retention-diagnostic-advisor`](../retention-diagnostic-advisor/METHOD.md)
 - **Decommission** (Lifecycle plays through end of life): [`eol-checklist`](../eol-checklist/METHOD.md), [`eol-internal-enablement`](../eol-internal-enablement/METHOD.md), [`eol-message`](../eol-message/METHOD.md), [`eol-process`](../eol-process/METHOD.md), [`eol-readiness-advisor`](../eol-readiness-advisor/METHOD.md), [`eol-stakeholder-sequence`](../eol-stakeholder-sequence/METHOD.md), [`lifecycle-play-advisor`](../lifecycle-play-advisor/METHOD.md), [`product-lifecycle-plays`](../product-lifecycle-plays/METHOD.md)
 
 **Drive** (Runs under all five phases): Drive your career and your stakeholders.
 
 - **Diplomacy** (Stakeholders, incoming requests, alignment): [`incoming-request-advisor`](../incoming-request-advisor/METHOD.md), [`stakeholder-engagement-advisor`](../stakeholder-engagement-advisor/METHOD.md), [`stakeholder-identification`](../stakeholder-identification/METHOD.md), [`stakeholder-mapping`](../stakeholder-mapping/METHOD.md)
 - **Demystify** (Career ladders, leadership transitions, interviews): [`altitude-horizon-framework`](../altitude-horizon-framework/METHOD.md), [`director-readiness-advisor`](../director-readiness-advisor/METHOD.md), [`executive-onboarding-playbook`](../executive-onboarding-playbook/METHOD.md), [`product-sense-interview-answer`](../product-sense-interview-answer/METHOD.md), [`vp-cpo-readiness-advisor`](../vp-cpo-readiness-advisor/METHOD.md)
+- **Delineate** (Draw the lines: decision rights and the PM role): [`decision-rights-matrix`](../decision-rights-matrix/METHOD.md), [`pm-role-charter`](../pm-role-charter/METHOD.md)
 
 **Core** (shared helpers that ship with every bundle): [`workshop-facilitation`](../workshop-facilitation/METHOD.md), [`pm-skills-navigator`](../pm-skills-navigator/METHOD.md), [`autonomous-investigation`](../autonomous-investigation/METHOD.md), [`pm-skill-creator`](../pm-skill-creator/METHOD.md), [`skill-authoring-workflow`](../skill-authoring-workflow/METHOD.md)
 <!-- BUNDLE-MAP:END -->

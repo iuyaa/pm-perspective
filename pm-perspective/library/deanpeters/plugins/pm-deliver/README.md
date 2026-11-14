@@ -18,7 +18,10 @@ Generated from `pm-skills.config.yaml`. Do not edit here: change the skill in [`
 
 Launch planning and messaging
 
-_Coming: GAP: launch plan, message house, sales narrative, buying journey, launch metrics (source: PM-Star go-to-market)_
+- [`launch-plan`](skills/launch-plan/METHOD.md)
+- [`message-house`](skills/message-house/METHOD.md)
+- [`sales-value-narrative`](skills/sales-value-narrative/METHOD.md)
+- [`buying-journey-enablement`](skills/buying-journey-enablement/METHOD.md)
 
 ### Dollars
 
@@ -37,7 +40,14 @@ Channels and acquisition
 
 Measure outcomes after launch
 
-_Coming: GAP: metrics review, outcome tracking (source: PM-Star launch metrics)_
+- [`launch-metrics`](skills/launch-metrics/METHOD.md)
+
+### Deepen
+
+Keep customers and grow them: activation and retention
+
+- [`activation-design`](skills/activation-design/METHOD.md)
+- [`retention-diagnostic-advisor`](skills/retention-diagnostic-advisor/METHOD.md)
 
 ### Decommission
 

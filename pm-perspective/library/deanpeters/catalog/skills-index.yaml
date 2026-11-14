@@ -1,5 +1,5 @@
 generated_from: skills/*/SKILL.md
-count: 78
+count: 95
 skills:
 - name: acquisition-channel-advisor
   description: Evaluate acquisition channels using unit economics, customer quality,
@@ -13,6 +13,19 @@ skills:
     (retention, NRR), and scalability (magic number, volume potential). Use this to
     make data-driven go-to-market decisions and optimize channel mix for sustainable
     growth.
+- name: activation-design
+  description: Define the moment a new customer first gets real value, then design
+    the shortest path to it. Use when trials stall, installs sit idle, or onboarding
+    is a checklist nobody finishes.
+  type: component
+  path: skills/activation-design/SKILL.md
+  bundle: deliver
+  motion: deepen
+  intent: Name the activation moment (the first time a customer gets the value they
+    bought for), measure the time to reach it, find what stands between sign-up or
+    delivery and that moment, and design the onboarding path, owner handoffs, and
+    checkpoints around it. Works for self-serve software, assisted onboarding, and
+    hardware commissioning, and ends with an activation metric the team can track.
 - name: agent-orchestration-advisor
   description: Design multi-agent AI workflows with clear boundaries, handoffs, and
     monitoring. Use when a complex PM task should run as parallel specialized agents
@@ -62,6 +75,18 @@ skills:
     with candidate moves backed by documented signals, risk ratings that respect the
     matrix''s risk gradient, and a recommended sequence with the assumption that breaks
     it.'
+- name: assumption-mapping
+  description: List the assumptions behind an idea and rank them by importance and
+    evidence. Use when a plan feels solid and you need to find the beliefs it rests
+    on before you commit.
+  type: component
+  path: skills/assumption-mapping/SKILL.md
+  bundle: discover
+  motion: decode
+  intent: Surface the assumptions hiding inside an idea, a plan, or a business case,
+    sort them into desirable, usable, viable, feasible, and ethical risk types, and
+    place each on an importance by evidence map so the team tests the few that can
+    sink the idea first. Output is a ranked list that feeds the de-risking skills.
 - name: autonomous-investigation
   description: 'The protocol behind every investigation skill. Use when AI research
     must proceed without you: search-plan gate, Fact/Inference/Assumption labels,
@@ -75,6 +100,19 @@ skills:
     \ lists, just-enough output, stable diffable schemas, and confidence stacking\
     \ \u2014 so investigations are trustworthy, schedulable, and comparable run over\
     \ run."
+- name: backlog-refinement-advisor
+  description: 'Get backlog items ready for planning: understood, small, testable.
+    Use when planning stalls on unclear tickets, or items keep growing and bouncing
+    back mid-sprint.'
+  type: interactive
+  path: skills/backlog-refinement-advisor/SKILL.md
+  bundle: develop
+  motion: drumbeat
+  intent: Guided triage from a messy backlog item to a ready one. Diagnoses what is
+    missing (the why, the scope, the acceptance, the size, or a dependency), recommends
+    the refinement move that fits (clarify, split, spike, or park), and defines "ready"
+    for this team so planning stops guessing. Right-sized so a small fix gets a sentence
+    and a risky epic gets a conversation.
 - name: battle-card-builder
   description: "Research and draft a competitive battle card from public evidence\
     \ \u2014 every claim labeled and sourced. Use when a rep needs a field-action\
@@ -98,6 +136,18 @@ skills:
     economics, and capital efficiency metrics together. Use this to identify problems
     early, prioritize actions by urgency, and deliver a comprehensive health scorecard
     for board meetings, quarterly reviews, or fundraising preparation.
+- name: buying-journey-enablement
+  description: Map how a buying group buys, then assign the enablement asset for each
+    stage and role, for direct sales and partners. Use when Sales has a pile of assets
+    and customers still stall.
+  type: workflow
+  path: skills/buying-journey-enablement/SKILL.md
+  bundle: deliver
+  motion: debut
+  intent: 'Enable the buying, not only the selling: map the buying jobs a group must
+    complete, what each role needs at each stage, and the one asset that meets it,
+    then set what partners need, how they are trained and certified, and how field
+    feedback keeps the toolkit current. Fewer, better assets.'
 - name: company-intel
   description: Research a company, industry, or competitor set using web search and
     seven analytical lenses. Use when you need structured intel that feeds downstream
@@ -208,6 +258,20 @@ skills:
     \ end-to-end customer experience, identify pain points, and create a shared mental\
     \ model across teams\u2014avoiding surface-level feature lists and ensuring discovery\
     \ work focuses on real customer problems, not assumed solutions."
+- name: decision-rights-matrix
+  description: Define who decides, who is consulted, and who is told for key product
+    decisions, with one accountable person each. Use when decisions stall, get reopened,
+    or go to whoever pushes hardest.
+  type: component
+  path: skills/decision-rights-matrix/SKILL.md
+  bundle: drive
+  motion: delineate
+  intent: 'Make it explicit who decides what, using RACI for the work and DACI (or
+    a similar single-approver model) for decisions, for the handful of product decisions
+    that cause the most friction: pricing, roadmap, requirements, launch go/no-go,
+    and end of life. Adds the forums where decisions are made, the escalation path,
+    and a decision log. Right-sized so a small team gets a half-page and a matrix
+    organization gets the full set.'
 - name: derisk-measurement-advisor
   description: Identify what to measure, test, or track to de-risk a product or AI
     idea. Use when stress-testing an idea across internal (DUFV) and external (PESTEL)
@@ -235,6 +299,19 @@ skills:
     \ transition using adaptive questions and targeted coaching. Diagnoses where you\
     \ are in the journey and delivers practical, war-story-backed guidance calibrated\
     \ to your situation \u2014 not generic leadership advice."
+- name: discovery-habits-advisor
+  description: Set up a steady rhythm of customer contact that feeds decisions. Use
+    when discovery happens in bursts, or never, and you want a habit the team will
+    actually keep.
+  type: interactive
+  path: skills/discovery-habits-advisor/SKILL.md
+  bundle: discover
+  motion: dig
+  intent: Guided triage from how a team talks to customers today to a sustainable
+    cadence. Diagnoses the real blocker (access, time, ownership, or what happens
+    to the evidence), fits a weekly or fortnightly touchpoint rhythm to the team and
+    customer reach, and defines who joins, how evidence is captured, and how it reaches
+    a decision. Right-sized so a small team starts with one habit.
 - name: discovery-interview-prep
   description: Plan customer discovery interviews with the right goal, segment, constraints,
     and method. Use when preparing interviews for problem validation, churn research,
@@ -465,6 +542,32 @@ skills:
     \ Use this framework to uncover unmet needs, validate product ideas, and ensure\
     \ your solution addresses real motivations\u2014not just surface-level feature\
     \ requests."
+- name: launch-metrics
+  description: Define launch success metrics, decision triggers, and 30/90/180-day
+    reviews before launch. Use when you need to know early whether a launch is working
+    and what you will do if it isn't.
+  type: component
+  path: skills/launch-metrics/SKILL.md
+  bundle: deliver
+  motion: dashboard
+  intent: Turn "was the launch a success?" into a question the team can answer with
+    data, early enough to act, using thresholds and responses agreed before anyone
+    sees the results. Pairs leading with lagging indicators across adoption, commercial,
+    operational, and customer categories, and schedules structured reviews that end
+    in owned actions.
+- name: launch-plan
+  description: 'Build a launch plan sized by tier: owners, dates, go/no-go criteria,
+    and a readiness scorecard. Use when a launch needs every function ready at once
+    and nobody has defined ''ready''.'
+  type: workflow
+  path: skills/launch-plan/SKILL.md
+  bundle: deliver
+  motion: debut
+  intent: Make a launch a coordinated business event instead of a ship date, so every
+    function that touches the customer is ready, the effort fits the size of the launch,
+    and the go/no-go call is made on criteria the team agreed before anyone saw the
+    status. Right-sized so a minor variant gets a short punch list and a platform
+    launch gets the full cross-functional plan.
 - name: lean-ux-canvas
   description: Guide teams through Lean UX Canvas v2. Use when framing a business
     problem, surfacing assumptions, and defining what to learn next.
@@ -503,6 +606,18 @@ skills:
     \ are, and whether apparent whitespace is opportunity or dead zone \u2014 with\
     \ labeled evidence, so sizing and positioning start from structure instead of\
     \ vibes."
+- name: message-house
+  description: 'Build a message house: one roof message, three value pillars, sourced
+    proof, a foundation, and role and channel variants. Use when Marketing, Sales,
+    and partners each tell a different story.'
+  type: component
+  path: skills/message-house/SKILL.md
+  bundle: deliver
+  motion: debut
+  intent: Give everyone who speaks about the offering one consistent, customer-tested
+    value story built on real customer pains and gains and backed by proof, so the
+    market hears value instead of a feature list. Turns a positioning statement into
+    words customers will read, without inventing proof.
 - name: opportunity-solution-tree
   description: Build an Opportunity Solution Tree from outcomes to opportunities,
     solutions, and tests. Use when a stakeholder request needs problem framing before
@@ -557,6 +672,19 @@ skills:
     \ and reporting material movement only \u2014 regulation passed, thresholds crossed,\
     \ technology matured, assumptions broken. Macro factors move slowly; the value\
     \ is catching the two that moved, not re-debating the twenty that did not."
+- name: pm-role-charter
+  description: 'Write a one-page charter for a PM role: what it owns, decides, influences,
+    and is measured on. Use when expectations clash, scope creeps, or a PM is held
+    accountable for things they can''t control.'
+  type: component
+  path: skills/pm-role-charter/SKILL.md
+  bundle: drive
+  motion: delineate
+  intent: 'Make a PM role explicit enough to hold someone accountable and to defend:
+    the outcome the role is responsible for, the decisions it makes versus shares,
+    the interfaces with engineering, design, sales, and support, how success is judged,
+    and what the role is not. Sized so a new PM gets a half page and a senior or multi-product
+    role gets the full charter.'
 - name: pm-skill-creator
   description: Design a new PM skill through guided conversation. Use when you have
     raw content or an idea and want to shape it into a compliant skill.
@@ -792,6 +920,46 @@ skills:
     \ defensible recommendation for stakeholders and decision-makers\u2014especially\
     \ when proposing AI-powered features or products that carry higher uncertainty\
     \ and risk."
+- name: release-readiness
+  description: 'Check a release is safe to ship: tests, rollout, monitoring, rollback,
+    support. Use when a build is about to go out and you need to know what could hurt,
+    and how you''d undo it.'
+  type: component
+  path: skills/release-readiness/SKILL.md
+  bundle: develop
+  motion: drumbeat
+  intent: A right-sized readiness check for shipping a release (a deploy, a firmware
+    update, a configuration change), distinct from the business launch. Confirms what
+    changed, how it's tested, how it rolls out, how it's watched, how it is undone,
+    and who is ready to support it, with a go / hold decision made on criteria agreed
+    before looking at status. Sized to the blast radius and reversibility.
+- name: research-synthesis
+  description: Turn raw interview notes and feedback into themes, insights, and opportunity
+    statements. Use when you have a pile of research and need to know what it says
+    before deciding anything.
+  type: workflow
+  path: skills/research-synthesis/SKILL.md
+  bundle: discover
+  motion: decode
+  intent: Take research that is still raw (interview notes, call transcripts, tickets,
+    survey comments) and walk it through coding, affinity grouping, insight writing,
+    and opportunity framing, with every insight traced to the notes behind it and
+    every claim sized by how many people said it. Ends with opportunity statements
+    ready for an opportunity solution tree, and a list of what the research does not
+    show.
+- name: retention-diagnostic-advisor
+  description: Find why customers leave or go quiet, then pick the fix that fits.
+    Use when churn or renewal numbers slipped and you need the cause before you launch
+    a retention program.
+  type: interactive
+  path: skills/retention-diagnostic-advisor/SKILL.md
+  bundle: deliver
+  motion: deepen
+  intent: Guided triage from a retention symptom to a diagnosis. Separates four causes
+    (never activated, never a fit, value faded, or something changed around the customer),
+    checks which the evidence supports, and recommends the move that fits (activation
+    fix, segment correction, value reinforcement, or a save and win-back play). Says
+    plainly when the data can't tell yet.
 - name: roadmap-planning
   description: Plan a strategic roadmap across prioritization, epic definition, stakeholder
     alignment, and sequencing. Use when turning strategy into a release plan that
@@ -828,6 +996,18 @@ skills:
     evaluate product-market fit, and make data-driven decisions about growth investments.
     Use this to calculate key metrics, interpret trends, identify problems early,
     and communicate business health to stakeholders.
+- name: sales-value-narrative
+  description: 'Build a sales value narrative: why change, why now, why us, value
+    by buying-group role, objections, and a do-not-say list. Use when Sales or partners
+    must explain value with claims they can defend.'
+  type: component
+  path: skills/sales-value-narrative/SKILL.md
+  bundle: deliver
+  motion: debut
+  intent: Give Sales and partners a short story the customer can retell inside their
+    own company, from the cost of staying put to a better outcome, with proof for
+    every claim and a prepared answer for the objections reps actually hear. Hands
+    the one-page competitive card to battle-card-builder.
 - name: skill-authoring-workflow
   description: Turn raw PM content into a compliant, publish-ready skill. Use when
     creating or updating a repo skill without breaking standards.
@@ -838,6 +1018,20 @@ skills:
   intent: Create or update PM skills without chaos. This workflow turns rough notes,
     workshop content, or half-baked prompt dumps into compliant `skills/<skill-name>/SKILL.md`
     assets that actually pass validation and belong in this repo.
+- name: sprint-planning
+  description: Plan a sprint around a goal, real capacity, and named risks. Use when
+    a team's sprints end with carryover, a pile of unrelated tickets, or a goal nobody
+    can state.
+  type: workflow
+  path: skills/sprint-planning/SKILL.md
+  bundle: develop
+  motion: drumbeat
+  intent: Run sprint planning as a decision about what the team can commit to and
+    why, not a ticket-filling exercise. Starts from a sprint goal, sizes capacity
+    from real availability, selects work that serves the goal, holds slack for the
+    unplanned, names the risks and dependencies, and leaves a commitment the team
+    believes. Works for software sprints and for hardware or service teams on a fixed
+    cadence.
 - name: stakeholder-engagement-advisor
   description: Plan engagement for a specific stakeholder. Use when preparing an outreach,
     navigating resistance, or aligning a critical relationship before a key milestone.
@@ -892,6 +1086,19 @@ skills:
     illustrate value, and make abstract product concepts concrete. Use this to align
     stakeholders, pitch features, communicate vision, or test if your solution resonates
     emotionally before building it.
+- name: survey-design-advisor
+  description: Decide whether a survey is the right tool, then shape it. Use when
+    you're about to send a survey and want to learn something real instead of collecting
+    biased, unusable answers.
+  type: interactive
+  path: skills/survey-design-advisor/SKILL.md
+  bundle: discover
+  motion: dig
+  intent: Guided triage from a research question to a survey decision. Checks whether
+    a survey is the right method at all, then fits the question types, sample, length,
+    and bias controls to what you need to learn, and flags the leading questions and
+    sampling traps that make survey data look more certain than it is. Recommends
+    a design, or recommends interviews or usage data instead.
 - name: swot-analysis
   description: "Build an evidence-cited SWOT of one company \u2014 yours or a competitor's\
     \ \u2014 from public sources, ending with the S-O/W-T crossings. Use for strategy\
@@ -918,6 +1125,19 @@ skills:
     \ this to build defensible market size estimates backed by real-world citations,\
     \ economic projections, and population data\u2014essential for pitching to investors,\
     \ securing budget, or validating product-market fit."
+- name: usage-data-investigation
+  description: Investigate what customers actually do from product analytics, with
+    every claim labeled Fact, Inference, or Assumption. Use when you need behavior
+    evidence, not opinions, before deciding.
+  type: workflow
+  path: skills/usage-data-investigation/SKILL.md
+  bundle: discover
+  motion: dig
+  intent: 'Turn a question about customer behavior into a disciplined read of product
+    usage data: define the question and the unit of analysis, check the data''s trustworthiness,
+    look at funnels, cohorts, and segments, separate what the data shows from what
+    you conclude, and name the follow-up that qualitative research must answer. Quantitative
+    discovery that points to the "why" without claiming it.'
 - name: user-story
   description: Create user stories with Mike Cohn format and Gherkin acceptance criteria.
     Use when turning user needs into development-ready work with clear outcomes and

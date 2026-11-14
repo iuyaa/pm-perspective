@@ -63,6 +63,12 @@ bundles:
       drill-down:
         summary: "Interviews, problem framing, opportunity solution trees, journey maps"
         skills: [discovery-interview-prep, discovery-process, opportunity-solution-tree, problem-framing-canvas, problem-statement, customer-journey-map, customer-journey-mapping-workshop]
+      dig:
+        summary: "Collect evidence: surveys, usage data, a steady customer-contact habit"
+        skills: [survey-design-advisor, usage-data-investigation, discovery-habits-advisor]
+      decode:
+        summary: "Make sense of it: synthesis and assumption mapping"
+        skills: [research-synthesis, assumption-mapping]
   define:
     phase: "Discover + Define"
     summary: "Shape a solution worth building and test the bet."
@@ -89,14 +95,16 @@ bundles:
       delegate:
         summary: "Work with AI agents: orchestration, context engineering, readiness"
         skills: [agent-orchestration-advisor, ai-shaped-readiness-advisor, context-engineering-advisor]
+      drumbeat:
+        summary: "Execution rhythm: backlog refinement, sprint planning, release readiness"
+        skills: [backlog-refinement-advisor, sprint-planning, release-readiness]
   deliver:
     phase: "Deliver"
     summary: "Take it to market, measure it, and retire it well."
     motions:
       debut:
         summary: "Launch planning and messaging"
-        skills: []
-        gap: "GAP: launch plan, message house, sales narrative, buying journey, launch metrics (source: PM-Star go-to-market)"
+        skills: [launch-plan, message-house, sales-value-narrative, buying-journey-enablement]
       dollars:
         summary: "Pricing and packaging"
         skills: [finance-based-pricing-advisor, pricing-packaging-tracker]
@@ -105,8 +113,10 @@ bundles:
         skills: [acquisition-channel-advisor]
       dashboard:
         summary: "Measure outcomes after launch"
-        skills: []
-        gap: "GAP: metrics review, outcome tracking (source: PM-Star launch metrics)"
+        skills: [launch-metrics]
+      deepen:
+        summary: "Keep customers and grow them: activation and retention"
+        skills: [activation-design, retention-diagnostic-advisor]
       decommission:
         summary: "Lifecycle plays through end of life"
         skills: [eol-checklist, eol-internal-enablement, eol-message, eol-process, eol-readiness-advisor, eol-stakeholder-sequence, lifecycle-play-advisor, product-lifecycle-plays]
@@ -120,6 +130,9 @@ bundles:
       demystify:
         summary: "Career ladders, leadership transitions, interviews"
         skills: [altitude-horizon-framework, director-readiness-advisor, executive-onboarding-playbook, product-sense-interview-answer, vp-cpo-readiness-advisor]
+      delineate:
+        summary: "Draw the lines: decision rights and the PM role"
+        skills: [decision-rights-matrix, pm-role-charter]
 
 # Shared infrastructure the other skills lean on. Not a bundle; shipped with each plugin.
 core: [workshop-facilitation, pm-skills-navigator, autonomous-investigation, pm-skill-creator, skill-authoring-workflow]

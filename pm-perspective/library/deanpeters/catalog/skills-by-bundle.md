@@ -68,6 +68,21 @@ Interviews, problem framing, opportunity solution trees, journey maps
 - `customer-journey-map` - Create a customer journey map across stages, touchpoints, actions, emotions, and metrics. Use when diagnosing a broken experience or aligning a team on the full customer flow.
 - `customer-journey-mapping-workshop` - Run a customer journey mapping workshop with adaptive questions and outputs. Use when you need to map stages, actions, emotions, pain points, and opportunities for a persona and scenario.
 
+### Dig
+
+Collect evidence: surveys, usage data, a steady customer-contact habit
+
+- `survey-design-advisor` - Decide whether a survey is the right tool, then shape it. Use when you're about to send a survey and want to learn something real instead of collecting biased, unusable answers.
+- `usage-data-investigation` - Investigate what customers actually do from product analytics, with every claim labeled Fact, Inference, or Assumption. Use when you need behavior evidence, not opinions, before deciding.
+- `discovery-habits-advisor` - Set up a steady rhythm of customer contact that feeds decisions. Use when discovery happens in bursts, or never, and you want a habit the team will actually keep.
+
+### Decode
+
+Make sense of it: synthesis and assumption mapping
+
+- `research-synthesis` - Turn raw interview notes and feedback into themes, insights, and opportunity statements. Use when you have a pile of research and need to know what it says before deciding anything.
+- `assumption-mapping` - List the assumptions behind an idea and rank them by importance and evidence. Use when a plan feels solid and you need to find the beliefs it rests on before you commit.
+
 ## Define (Discover + Define)
 
 Shape a solution worth building and test the bet.
@@ -128,6 +143,14 @@ Work with AI agents: orchestration, context engineering, readiness
 - `ai-shaped-readiness-advisor` - Assess whether your product work is AI-first or AI-shaped. Use when evaluating AI maturity and choosing the next team capability to build.
 - `context-engineering-advisor` - Diagnose context stuffing vs. context engineering. Use when an AI workflow feels bloated, brittle, or hard to steer reliably.
 
+### Drumbeat
+
+Execution rhythm: backlog refinement, sprint planning, release readiness
+
+- `backlog-refinement-advisor` - Get backlog items ready for planning: understood, small, testable. Use when planning stalls on unclear tickets, or items keep growing and bouncing back mid-sprint.
+- `sprint-planning` - Plan a sprint around a goal, real capacity, and named risks. Use when a team's sprints end with carryover, a pile of unrelated tickets, or a goal nobody can state.
+- `release-readiness` - Check a release is safe to ship: tests, rollout, monitoring, rollback, support. Use when a build is about to go out and you need to know what could hurt, and how you'd undo it.
+
 ## Deliver (Deliver)
 
 Take it to market, measure it, and retire it well.
@@ -136,7 +159,10 @@ Take it to market, measure it, and retire it well.
 
 Launch planning and messaging
 
-- _Coming: GAP: launch plan, message house, sales narrative, buying journey, launch metrics (source: PM-Star go-to-market)_
+- `launch-plan` - Build a launch plan sized by tier: owners, dates, go/no-go criteria, and a readiness scorecard. Use when a launch needs every function ready at once and nobody has defined 'ready'.
+- `message-house` - Build a message house: one roof message, three value pillars, sourced proof, a foundation, and role and channel variants. Use when Marketing, Sales, and partners each tell a different story.
+- `sales-value-narrative` - Build a sales value narrative: why change, why now, why us, value by buying-group role, objections, and a do-not-say list. Use when Sales or partners must explain value with claims they can defend.
+- `buying-journey-enablement` - Map how a buying group buys, then assign the enablement asset for each stage and role, for direct sales and partners. Use when Sales has a pile of assets and customers still stall.
 
 ### Dollars
 
@@ -155,7 +181,14 @@ Channels and acquisition
 
 Measure outcomes after launch
 
-- _Coming: GAP: metrics review, outcome tracking (source: PM-Star launch metrics)_
+- `launch-metrics` - Define launch success metrics, decision triggers, and 30/90/180-day reviews before launch. Use when you need to know early whether a launch is working and what you will do if it isn't.
+
+### Deepen
+
+Keep customers and grow them: activation and retention
+
+- `activation-design` - Define the moment a new customer first gets real value, then design the shortest path to it. Use when trials stall, installs sit idle, or onboarding is a checklist nobody finishes.
+- `retention-diagnostic-advisor` - Find why customers leave or go quiet, then pick the fix that fits. Use when churn or renewal numbers slipped and you need the cause before you launch a retention program.
 
 ### Decommission
 
@@ -192,6 +225,13 @@ Career ladders, leadership transitions, interviews
 - `executive-onboarding-playbook` - Plan a VP or CPO 30-60-90 day diagnostic onboarding path. Use when entering a new executive product role and avoiding premature change.
 - `product-sense-interview-answer` - Structure a spoken PM product-sense answer with assumptions, segmentation, pain-point prioritization, and MVP tradeoffs. Use when practicing design, improve, or build-next interview questions.
 - `vp-cpo-readiness-advisor` - Guide the transition to VP or CPO across preparing, interviewing, landing, and recalibrating. Use when executive product scope is changing fast.
+
+### Delineate
+
+Draw the lines: decision rights and the PM role
+
+- `decision-rights-matrix` - Define who decides, who is consulted, and who is told for key product decisions, with one accountable person each. Use when decisions stall, get reopened, or go to whoever pushes hardest.
+- `pm-role-charter` - Write a one-page charter for a PM role: what it owns, decides, influences, and is measured on. Use when expectations clash, scope creeps, or a PM is held accountable for things they can't control.
 
 ## Core
 

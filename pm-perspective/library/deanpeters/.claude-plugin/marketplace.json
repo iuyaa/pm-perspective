@@ -5,8 +5,8 @@
     "email": "dean.peters@productside.com"
   },
   "metadata": {
-    "description": "78 battle-tested product management skills for Claude Code \u2014 discovery, strategy, finance, career, lifecycle, and more.",
-    "version": "0.84.0"
+    "description": "95 battle-tested product management skills for Claude Code \u2014 discovery, strategy, finance, career, lifecycle, and more.",
+    "version": "0.86.0"
   },
   "plugins": [
     {
@@ -39,13 +39,15 @@
     {
       "name": "pm-discover",
       "source": "./plugins/pm-discover",
-      "description": "Find and frame the real problem. 7 skills (Drill-down); shared helper skills included.",
+      "description": "Find and frame the real problem. 12 skills (Drill-down, Dig, Decode); shared helper skills included.",
       "category": "lifecycle-bundle",
       "tags": [
         "pm",
         "bundle",
         "discover",
-        "drill-down"
+        "drill-down",
+        "dig",
+        "decode"
       ]
     },
     {
@@ -64,7 +66,7 @@
     {
       "name": "pm-develop",
       "source": "./plugins/pm-develop",
-      "description": "Turn the chosen solution into buildable work. 13 skills (Document, Draft, Decide, Delegate); shared helper skills included.",
+      "description": "Turn the chosen solution into buildable work. 16 skills (Document, Draft, Decide, Delegate, Drumbeat); shared helper skills included.",
       "category": "lifecycle-bundle",
       "tags": [
         "pm",
@@ -73,13 +75,14 @@
         "document",
         "draft",
         "decide",
-        "delegate"
+        "delegate",
+        "drumbeat"
       ]
     },
     {
       "name": "pm-deliver",
       "source": "./plugins/pm-deliver",
-      "description": "Take it to market, measure it, and retire it well. 11 skills (Debut, Dollars, Demand, Dashboard, Decommission); shared helper skills included.",
+      "description": "Take it to market, measure it, and retire it well. 18 skills (Debut, Dollars, Demand, Dashboard, Deepen, Decommission); shared helper skills included.",
       "category": "lifecycle-bundle",
       "tags": [
         "pm",
@@ -89,20 +92,22 @@
         "dollars",
         "demand",
         "dashboard",
+        "deepen",
         "decommission"
       ]
     },
     {
       "name": "pm-drive",
       "source": "./plugins/pm-drive",
-      "description": "Drive your career and your stakeholders. 9 skills (Diplomacy, Demystify); shared helper skills included.",
+      "description": "Drive your career and your stakeholders. 11 skills (Diplomacy, Demystify, Delineate); shared helper skills included.",
       "category": "lifecycle-bundle",
       "tags": [
         "pm",
         "bundle",
         "drive",
         "diplomacy",
-        "demystify"
+        "demystify",
+        "delineate"
       ]
     },
     {
@@ -805,6 +810,134 @@
       "strict": false
     },
     {
+      "name": "launch-plan",
+      "source": "./skills/launch-plan",
+      "description": "Build a tiered launch plan with owners, go/no-go criteria, and a readiness scorecard.",
+      "category": "strategy",
+      "tags": [
+        "pm",
+        "launch",
+        "go-to-market",
+        "workflow"
+      ],
+      "strict": false
+    },
+    {
+      "name": "launch-metrics",
+      "source": "./skills/launch-metrics",
+      "description": "Define launch success metrics, decision triggers, and 30/90/180-day reviews before you launch.",
+      "category": "strategy",
+      "tags": [
+        "pm",
+        "launch",
+        "metrics",
+        "component"
+      ],
+      "strict": false
+    },
+    {
+      "name": "message-house",
+      "source": "./skills/message-house",
+      "description": "Build a message house: one roof message, value pillars, sourced proof, and role and channel variants.",
+      "category": "strategy",
+      "tags": [
+        "pm",
+        "launch",
+        "go-to-market",
+        "component",
+        "messaging"
+      ],
+      "strict": false
+    },
+    {
+      "name": "sales-value-narrative",
+      "source": "./skills/sales-value-narrative",
+      "description": "Build a sales story: why change, why now, why us, value by role, objections, do-not-say.",
+      "category": "strategy",
+      "tags": [
+        "pm",
+        "launch",
+        "go-to-market",
+        "component",
+        "sales"
+      ],
+      "strict": false
+    },
+    {
+      "name": "buying-journey-enablement",
+      "source": "./skills/buying-journey-enablement",
+      "description": "Map how buyers buy and assign the enablement asset for each stage, role, and channel.",
+      "category": "strategy",
+      "tags": [
+        "pm",
+        "launch",
+        "go-to-market",
+        "workflow",
+        "enablement"
+      ],
+      "strict": false
+    },
+    {
+      "name": "research-synthesis",
+      "source": "./skills/research-synthesis",
+      "description": "Turn raw interview notes and feedback into themes, insights, and opportunity statements.",
+      "category": "discovery",
+      "tags": [
+        "pm",
+        "discovery",
+        "workflow"
+      ],
+      "strict": false
+    },
+    {
+      "name": "assumption-mapping",
+      "source": "./skills/assumption-mapping",
+      "description": "List the assumptions behind an idea and rank them by importance and evidence.",
+      "category": "discovery",
+      "tags": [
+        "pm",
+        "discovery",
+        "component"
+      ],
+      "strict": false
+    },
+    {
+      "name": "usage-data-investigation",
+      "source": "./skills/usage-data-investigation",
+      "description": "Read product usage data honestly: funnel, cohorts, segments, with Fact/Inference/Assumption labels.",
+      "category": "discovery",
+      "tags": [
+        "pm",
+        "discovery",
+        "workflow"
+      ],
+      "strict": false
+    },
+    {
+      "name": "survey-design-advisor",
+      "source": "./skills/survey-design-advisor",
+      "description": "Decide whether a survey is the right tool, then design one that avoids bias.",
+      "category": "discovery",
+      "tags": [
+        "pm",
+        "discovery",
+        "interactive"
+      ],
+      "strict": false
+    },
+    {
+      "name": "discovery-habits-advisor",
+      "source": "./skills/discovery-habits-advisor",
+      "description": "Set up a steady rhythm of customer contact that feeds decisions.",
+      "category": "discovery",
+      "tags": [
+        "pm",
+        "discovery",
+        "interactive"
+      ],
+      "strict": false
+    },
+    {
       "name": "pricing-packaging-tracker",
       "source": "./skills/pricing-packaging-tracker",
       "description": "Track competitor pricing and packaging as a diffable time series: tiers, gates, and what changed.",
@@ -1147,6 +1280,94 @@
         "pm",
         "facilitation",
         "workshop",
+        "interactive"
+      ],
+      "strict": false
+    },
+    {
+      "name": "sprint-planning",
+      "source": "./skills/sprint-planning",
+      "description": "Plan a sprint around a goal, real capacity, and named risks.",
+      "category": "delivery",
+      "tags": [
+        "pm",
+        "sprint",
+        "workflow"
+      ],
+      "strict": false
+    },
+    {
+      "name": "backlog-refinement-advisor",
+      "source": "./skills/backlog-refinement-advisor",
+      "description": "Get backlog items ready for planning",
+      "category": " understood, small, testable.",
+      "tags": [
+        "pm",
+        "delivery:backlog",
+        "interactive"
+      ],
+      "strict": false
+    },
+    {
+      "name": "release-readiness",
+      "source": "./skills/release-readiness",
+      "description": "Check a release is safe to ship",
+      "category": " tests, rollout, monitoring, rollback, support.",
+      "tags": [
+        "pm",
+        "delivery:release",
+        "component"
+      ],
+      "strict": false
+    },
+    {
+      "name": "decision-rights-matrix",
+      "source": "./skills/decision-rights-matrix",
+      "description": "Define who decides what for key product decisions, with one accountable person each.",
+      "category": "stakeholder",
+      "tags": [
+        "pm",
+        "decisions",
+        "raci",
+        "component"
+      ],
+      "strict": false
+    },
+    {
+      "name": "pm-role-charter",
+      "source": "./skills/pm-role-charter",
+      "description": "Write a one-page charter for a PM role",
+      "category": " outcome, decisions, interfaces, measures.",
+      "tags": [
+        "pm",
+        "stakeholder:role",
+        "charter",
+        "component"
+      ],
+      "strict": false
+    },
+    {
+      "name": "activation-design",
+      "source": "./skills/activation-design",
+      "description": "Define the first-real-value moment and design the shortest path to it.",
+      "category": "delivery",
+      "tags": [
+        "pm",
+        "activation",
+        "onboarding",
+        "component"
+      ],
+      "strict": false
+    },
+    {
+      "name": "retention-diagnostic-advisor",
+      "source": "./skills/retention-diagnostic-advisor",
+      "description": "Find why customers leave or go quiet, then pick the fix that fits the cause.",
+      "category": "delivery",
+      "tags": [
+        "pm",
+        "retention",
+        "churn",
         "interactive"
       ],
       "strict": false

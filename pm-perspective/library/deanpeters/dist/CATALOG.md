@@ -1,18 +1,21 @@
 # Skill Catalog
 
-All **78 skills** in this library. Each links to its individual download ZIP in this folder — click, download, unzip, and upload the `METHOD.md` to Claude. No terminal required.
+All **95 skills** in this library. Each links to its individual download ZIP in this folder — click, download, unzip, and upload the `METHOD.md` to Claude. No terminal required.
 
 > New here? Read [`README.md`](README.md) first — it explains how to pick a pack and install.
 
-## Component Skills (28)
+## Component Skills (36)
 
 _Self-contained artifacts and templates._
 
 | Skill | What it does |
 |---|---|
+| [`activation-design`](activation-design.zip) | Define the moment a new customer first gets real value, then design the shortest path to it. Use when trials stall, installs sit idle, or onboarding is a checklist nobody finishes. |
 | [`altitude-horizon-framework`](altitude-horizon-framework.zip) | Understand the PM-to-Director transition through altitude and horizon thinking. Use when diagnosing scope, time-horizon, or leadership-level gaps. |
+| [`assumption-mapping`](assumption-mapping.zip) | List the assumptions behind an idea and rank them by importance and evidence. Use when a plan feels solid and you need to find the beliefs it rests on before you commit. |
 | [`company-research`](company-research.zip) | Create a company research brief with executive quotes, product strategy, and org context. Use when preparing for interviews, competitive analysis, partnerships, or market-entry work. |
 | [`customer-journey-map`](customer-journey-map.zip) | Create a customer journey map across stages, touchpoints, actions, emotions, and metrics. Use when diagnosing a broken experience or aligning a team on the full customer flow. |
+| [`decision-rights-matrix`](decision-rights-matrix.zip) | Define who decides, who is consulted, and who is told for key product decisions, with one accountable person each. Use when decisions stall, get reopened, or go to whoever pushes hardest. |
 | [`eol-checklist`](eol-checklist.zip) | Build a phase-gated EOL checklist sized to the sunset, with a named owner on every item. Use when the decision to retire is made and you need the operational plan. |
 | [`eol-internal-enablement`](eol-internal-enablement.zip) | Build the support FAQ, sales talking points, and objection handling teams need before an EOL announcement. Use when customer-facing teams must be ready before customers hear. |
 | [`eol-message`](eol-message.zip) | Write a right-sized EOL announcement — brief notice through full phased comms — with rationale, customer impact, and next steps. Use when retiring a product, feature, or plan. |
@@ -21,7 +24,10 @@ _Self-contained artifacts and templates._
 | [`finance-metrics-quickref`](finance-metrics-quickref.zip) | Look up SaaS finance metrics, formulas, and benchmarks fast. Use when you need a quick metric definition, formula, or benchmark during analysis. |
 | [`intelligence-collection-disciplines`](intelligence-collection-disciplines.zip) | Run competitive research like an intelligence agency: eight collection disciplines (OSINT to MASINT), signal-to-inference chains, and fusion. Use when one-source research isn't enough. |
 | [`jobs-to-be-done`](jobs-to-be-done.zip) | Uncover customer jobs, pains, and gains in a structured JTBD format. Use when clarifying unmet needs, repositioning a product, or improving discovery and messaging. |
+| [`launch-metrics`](launch-metrics.zip) | Define launch success metrics, decision triggers, and 30/90/180-day reviews before launch. Use when you need to know early whether a launch is working and what you will do if it isn't. |
+| [`message-house`](message-house.zip) | Build a message house: one roof message, three value pillars, sourced proof, a foundation, and role and channel variants. Use when Marketing, Sales, and partners each tell a different story. |
 | [`pestel-analysis`](pestel-analysis.zip) | Analyze political, economic, social, technological, environmental, and legal forces. Use when external market shifts could materially affect a product, roadmap, or strategy. |
+| [`pm-role-charter`](pm-role-charter.zip) | Write a one-page charter for a PM role: what it owns, decides, influences, and is measured on. Use when expectations clash, scope creeps, or a PM is held accountable for things they can't control. |
 | [`pol-probe`](pol-probe.zip) | Define a Proof of Life probe to test a risky hypothesis cheaply. Use when you need harsh truth before building real product. |
 | [`positioning-statement`](positioning-statement.zip) | Create a Geoffrey Moore-style positioning statement. Use when clarifying who you serve, what problem you solve, your category, and why you're different from alternatives. |
 | [`press-release`](press-release.zip) | Write an Amazon-style press release that defines customer value before building. Use when aligning stakeholders on a new product, feature, or strategic bet. |
@@ -30,8 +36,10 @@ _Self-contained artifacts and templates._
 | [`product-sense-interview-answer`](product-sense-interview-answer.zip) | Structure a spoken PM product-sense answer with assumptions, segmentation, pain-point prioritization, and MVP tradeoffs. Use when practicing design, improve, or build-next interview questions. |
 | [`proto-persona`](proto-persona.zip) | Create a proto-persona from current research, market signals, and team knowledge. Use when you need a working customer profile before deeper validation. |
 | [`recommendation-canvas`](recommendation-canvas.zip) | Evaluate an AI product idea across outcomes, hypotheses, risks, and positioning. Use when deciding whether an AI solution deserves investment or recommendation. |
+| [`release-readiness`](release-readiness.zip) | Check a release is safe to ship: tests, rollout, monitoring, rollback, support. Use when a build is about to go out and you need to know what could hurt, and how you'd undo it. |
 | [`saas-economics-efficiency-metrics`](saas-economics-efficiency-metrics.zip) | Evaluate SaaS unit economics and capital efficiency. Use when deciding whether the business can scale efficiently or needs correction. |
 | [`saas-revenue-growth-metrics`](saas-revenue-growth-metrics.zip) | Calculate SaaS revenue, retention, and growth metrics. Use when diagnosing momentum, churn, expansion, or product-market-fit signals. |
+| [`sales-value-narrative`](sales-value-narrative.zip) | Build a sales value narrative: why change, why now, why us, value by buying-group role, objections, and a do-not-say list. Use when Sales or partners must explain value with claims they can defend. |
 | [`stakeholder-identification`](stakeholder-identification.zip) | Map every stakeholder before engaging anyone. Use when launching an initiative, scoping discovery, or building an engagement plan from scratch. |
 | [`stakeholder-mapping`](stakeholder-mapping.zip) | Prioritize stakeholders using two complementary grids. Use when setting engagement strategy and surfacing whose voice needs elevating after stakeholder identification. |
 | [`storyboard`](storyboard.zip) | Create a six-frame storyboard that shows a user's journey from problem to solution. Use when you need a fast narrative for alignment, concept reviews, or demos. |
@@ -39,7 +47,7 @@ _Self-contained artifacts and templates._
 | [`user-story-mapping`](user-story-mapping.zip) | Create a user story map that lays out activities, steps, tasks, and release slices. Use when planning a workflow, backlog, or MVP around the user journey. |
 | [`user-story-splitting`](user-story-splitting.zip) | Break a large story or epic into smaller deliverable stories using proven split patterns. Use when backlog items are too big for estimation, sequencing, or independent release. |
 
-## Interactive Skills (30)
+## Interactive Skills (34)
 
 _Guided, multi-turn advisors that ask then recommend._
 
@@ -48,11 +56,13 @@ _Guided, multi-turn advisors that ask then recommend._
 | [`acquisition-channel-advisor`](acquisition-channel-advisor.zip) | Evaluate acquisition channels using unit economics, customer quality, and scalability. Use when deciding whether to scale, test, or kill a growth channel. |
 | [`agent-orchestration-advisor`](agent-orchestration-advisor.zip) | Design multi-agent AI workflows with clear boundaries, handoffs, and monitoring. Use when a complex PM task should run as parallel specialized agents instead of one linear process. |
 | [`ai-shaped-readiness-advisor`](ai-shaped-readiness-advisor.zip) | Assess whether your product work is AI-first or AI-shaped. Use when evaluating AI maturity and choosing the next team capability to build. |
+| [`backlog-refinement-advisor`](backlog-refinement-advisor.zip) | Get backlog items ready for planning: understood, small, testable. Use when planning stalls on unclear tickets, or items keep growing and bouncing back mid-sprint. |
 | [`business-health-diagnostic`](business-health-diagnostic.zip) | Diagnose SaaS business health across growth, retention, efficiency, and capital. Use when preparing a business review or prioritizing urgent fixes. |
 | [`context-engineering-advisor`](context-engineering-advisor.zip) | Diagnose context stuffing vs. context engineering. Use when an AI workflow feels bloated, brittle, or hard to steer reliably. |
 | [`customer-journey-mapping-workshop`](customer-journey-mapping-workshop.zip) | Run a customer journey mapping workshop with adaptive questions and outputs. Use when you need to map stages, actions, emotions, pain points, and opportunities for a persona and scenario. |
 | [`derisk-measurement-advisor`](derisk-measurement-advisor.zip) | Identify what to measure, test, or track to de-risk a product or AI idea. Use when stress-testing an idea across internal (DUFV) and external (PESTEL) dimensions. |
 | [`director-readiness-advisor`](director-readiness-advisor.zip) | Guide the PM-to-Director transition across preparing, interviewing, landing, and recalibrating. Use when leadership scope is changing and you need practical coaching. |
+| [`discovery-habits-advisor`](discovery-habits-advisor.zip) | Set up a steady rhythm of customer contact that feeds decisions. Use when discovery happens in bursts, or never, and you want a habit the team will actually keep. |
 | [`discovery-interview-prep`](discovery-interview-prep.zip) | Plan customer discovery interviews with the right goal, segment, constraints, and method. Use when preparing interviews for problem validation, churn research, or new product ideas. |
 | [`eol-readiness-advisor`](eol-readiness-advisor.zip) | Run a go/no-go assessment for retiring a product or feature, then right-size the effort. Use when someone says "we should probably kill this" and nobody has made the call. |
 | [`epic-breakdown-advisor`](epic-breakdown-advisor.zip) | Break down epics into user stories with Humanizing Work split patterns. Use when a backlog item is too large to estimate, sequence, or deliver safely. |
@@ -70,13 +80,15 @@ _Guided, multi-turn advisors that ask then recommend._
 | [`positioning-workshop`](positioning-workshop.zip) | Run a positioning workshop that surfaces target customer, unmet need, category, benefits, and differentiation. Use when your product messaging feels fuzzy, generic, or misaligned. |
 | [`prioritization-advisor`](prioritization-advisor.zip) | Choose a prioritization framework based on stage, team context, and stakeholder needs. Use when deciding between RICE, ICE, value/effort, or another scoring approach. |
 | [`problem-framing-canvas`](problem-framing-canvas.zip) | Guide teams through MITRE's Problem Framing Canvas. Use when you need a clearer problem statement before jumping to solutions. |
+| [`retention-diagnostic-advisor`](retention-diagnostic-advisor.zip) | Find why customers leave or go quiet, then pick the fix that fits. Use when churn or renewal numbers slipped and you need the cause before you launch a retention program. |
 | [`stakeholder-engagement-advisor`](stakeholder-engagement-advisor.zip) | Plan engagement for a specific stakeholder. Use when preparing an outreach, navigating resistance, or aligning a critical relationship before a key milestone. |
+| [`survey-design-advisor`](survey-design-advisor.zip) | Decide whether a survey is the right tool, then shape it. Use when you're about to send a survey and want to learn something real instead of collecting biased, unusable answers. |
 | [`tam-sam-som-calculator`](tam-sam-som-calculator.zip) | Calculate TAM, SAM, and SOM with explicit assumptions, methods, and caveats. Use when sizing a market for a product idea, business case, or executive review. |
 | [`user-story-mapping-workshop`](user-story-mapping-workshop.zip) | Run a user story mapping workshop with adaptive questions and a structured map output. Use when you need backbone activities, tasks, and release slices for a workflow. |
 | [`vp-cpo-readiness-advisor`](vp-cpo-readiness-advisor.zip) | Guide the transition to VP or CPO across preparing, interviewing, landing, and recalibrating. Use when executive product scope is changing fast. |
 | [`workshop-facilitation`](workshop-facilitation.zip) | Facilitate workshop sessions in a one-step, multi-turn flow. Use when an interactive skill needs consistent pacing, options, and progress tracking. |
 
-## Workflow Skills (20)
+## Workflow Skills (25)
 
 _End-to-end processes that orchestrate other skills._
 
@@ -85,6 +97,7 @@ _End-to-end processes that orchestrate other skills._
 | [`ansoff-matrix`](ansoff-matrix.zip) | Map evidence-backed growth options across the Ansoff Matrix with risk-rated sequencing. Use when the question is where the next tranche of growth comes from, and at what risk. |
 | [`autonomous-investigation`](autonomous-investigation.zip) | The protocol behind every investigation skill. Use when AI research must proceed without you: search-plan gate, Fact/Inference/Assumption labels, confidence stacking, diffable outputs. |
 | [`battle-card-builder`](battle-card-builder.zip) | Research and draft a competitive battle card from public evidence — every claim labeled and sourced. Use when a rep needs a field-action card, not a research report. |
+| [`buying-journey-enablement`](buying-journey-enablement.zip) | Map how a buying group buys, then assign the enablement asset for each stage and role, for direct sales and partners. Use when Sales has a pile of assets and customers still stall. |
 | [`company-intel`](company-intel.zip) | Research a company, industry, or competitor set using web search and seven analytical lenses. Use when you need structured intel that feeds downstream PM skills. |
 | [`competitive-analysis-process`](competitive-analysis-process.zip) | Orchestrate a complete competitive analysis across six steps, from landscape to strategic direction. Use when you need the full picture, not a single scan or card. |
 | [`competitive-intel-watch`](competitive-intel-watch.zip) | Scheduled delta monitoring against a prior competitive snapshot. Use when tracking competitors on a cadence: material shifts only, cited evidence, battle-card update flags, runs unattended. |
@@ -92,15 +105,19 @@ _End-to-end processes that orchestrate other skills._
 | [`discovery-process`](discovery-process.zip) | Run a full discovery cycle from problem hypothesis to validated solution. Use when a team needs a structured path through framing, interviews, synthesis, and experiments. |
 | [`eol-process`](eol-process.zip) | Run a product sunset end to end — decide, align, plan, prepare, announce, close. Use when you need the whole EOL process, not just one artifact. |
 | [`executive-onboarding-playbook`](executive-onboarding-playbook.zip) | Plan a VP or CPO 30-60-90 day diagnostic onboarding path. Use when entering a new executive product role and avoiding premature change. |
+| [`launch-plan`](launch-plan.zip) | Build a launch plan sized by tier: owners, dates, go/no-go criteria, and a readiness scorecard. Use when a launch needs every function ready at once and nobody has defined 'ready'. |
 | [`market-landscape-scan`](market-landscape-scan.zip) | Map a market's segments, players, substitutes, and whitespace with cited evidence. Use when entering or re-evaluating a market before sizing, positioning, or picking competitors to study. |
 | [`pestel-delta-monitor`](pestel-delta-monitor.zip) | Quarterly re-scan of a prior PESTEL analysis. Use when checking which macro factors moved, which assumptions broke, and what's new — turning PESTEL from a workshop artifact into a radar. |
 | [`porters-five-forces`](porters-five-forces.zip) | Read an industry's structure through Porter's Five Forces with documented signals per rating, ending at the profit pool. Use when weighing market entry or when margins erode and nobody can say why. |
 | [`prd-development`](prd-development.zip) | Build a structured PRD that connects problem, users, solution, and success criteria. Use when turning discovery notes into an engineering-ready document for a major initiative. |
 | [`pricing-packaging-tracker`](pricing-packaging-tracker.zip) | Track competitor pricing and packaging as a diffable time series. Use when monitoring tiers, gates, limits, and price moves on a monthly or quarterly cadence. |
 | [`product-strategy-session`](product-strategy-session.zip) | Run an end-to-end product strategy session across positioning, discovery, and roadmap planning. Use when a team needs validated direction before committing to execution. |
+| [`research-synthesis`](research-synthesis.zip) | Turn raw interview notes and feedback into themes, insights, and opportunity statements. Use when you have a pile of research and need to know what it says before deciding anything. |
 | [`roadmap-planning`](roadmap-planning.zip) | Plan a strategic roadmap across prioritization, epic definition, stakeholder alignment, and sequencing. Use when turning strategy into a release plan that teams can execute. |
 | [`skill-authoring-workflow`](skill-authoring-workflow.zip) | Turn raw PM content into a compliant, publish-ready skill. Use when creating or updating a repo skill without breaking standards. |
+| [`sprint-planning`](sprint-planning.zip) | Plan a sprint around a goal, real capacity, and named risks. Use when a team's sprints end with carryover, a pile of unrelated tickets, or a goal nobody can state. |
 | [`swot-analysis`](swot-analysis.zip) | Build an evidence-cited SWOT of one company — yours or a competitor's — from public sources, ending with the S-O/W-T crossings. Use for strategy reviews, board prep, or competitor depth. |
+| [`usage-data-investigation`](usage-data-investigation.zip) | Investigate what customers actually do from product analytics, with every claim labeled Fact, Inference, or Assumption. Use when you need behavior evidence, not opinions, before deciding. |
 | [`voice-of-customer-miner`](voice-of-customer-miner.zip) | Mine public reviews, app stores, and forums for unmet needs, competitor weaknesses, and switching triggers — with quoted evidence. Use when you want customer voice without waiting on interviews. |
 
 ## Browse by lifecycle bundle
@@ -161,6 +178,17 @@ Find and frame the real problem.
 - [`customer-journey-map`](customer-journey-map.zip): Create a customer journey map across stages, touchpoints, actions, emotions, and metrics. Use when diagnosing a broken experience or aligning a team on the full customer flow.
 - [`customer-journey-mapping-workshop`](customer-journey-mapping-workshop.zip): Run a customer journey mapping workshop with adaptive questions and outputs. Use when you need to map stages, actions, emotions, pain points, and opportunities for a persona and scenario.
 
+**Dig**: Collect evidence: surveys, usage data, a steady customer-contact habit
+
+- [`survey-design-advisor`](survey-design-advisor.zip): Decide whether a survey is the right tool, then shape it. Use when you're about to send a survey and want to learn something real instead of collecting biased, unusable answers.
+- [`usage-data-investigation`](usage-data-investigation.zip): Investigate what customers actually do from product analytics, with every claim labeled Fact, Inference, or Assumption. Use when you need behavior evidence, not opinions, before deciding.
+- [`discovery-habits-advisor`](discovery-habits-advisor.zip): Set up a steady rhythm of customer contact that feeds decisions. Use when discovery happens in bursts, or never, and you want a habit the team will actually keep.
+
+**Decode**: Make sense of it: synthesis and assumption mapping
+
+- [`research-synthesis`](research-synthesis.zip): Turn raw interview notes and feedback into themes, insights, and opportunity statements. Use when you have a pile of research and need to know what it says before deciding anything.
+- [`assumption-mapping`](assumption-mapping.zip): List the assumptions behind an idea and rank them by importance and evidence. Use when a plan feels solid and you need to find the beliefs it rests on before you commit.
+
 ### Define (Discover + Define)
 
 Shape a solution worth building and test the bet.
@@ -209,13 +237,22 @@ Turn the chosen solution into buildable work.
 - [`ai-shaped-readiness-advisor`](ai-shaped-readiness-advisor.zip): Assess whether your product work is AI-first or AI-shaped. Use when evaluating AI maturity and choosing the next team capability to build.
 - [`context-engineering-advisor`](context-engineering-advisor.zip): Diagnose context stuffing vs. context engineering. Use when an AI workflow feels bloated, brittle, or hard to steer reliably.
 
+**Drumbeat**: Execution rhythm: backlog refinement, sprint planning, release readiness
+
+- [`backlog-refinement-advisor`](backlog-refinement-advisor.zip): Get backlog items ready for planning: understood, small, testable. Use when planning stalls on unclear tickets, or items keep growing and bouncing back mid-sprint.
+- [`sprint-planning`](sprint-planning.zip): Plan a sprint around a goal, real capacity, and named risks. Use when a team's sprints end with carryover, a pile of unrelated tickets, or a goal nobody can state.
+- [`release-readiness`](release-readiness.zip): Check a release is safe to ship: tests, rollout, monitoring, rollback, support. Use when a build is about to go out and you need to know what could hurt, and how you'd undo it.
+
 ### Deliver (Deliver)
 
 Take it to market, measure it, and retire it well.
 
 **Debut**: Launch planning and messaging
 
-- _Coming: GAP: launch plan, message house, sales narrative, buying journey, launch metrics (source: PM-Star go-to-market)_
+- [`launch-plan`](launch-plan.zip): Build a launch plan sized by tier: owners, dates, go/no-go criteria, and a readiness scorecard. Use when a launch needs every function ready at once and nobody has defined 'ready'.
+- [`message-house`](message-house.zip): Build a message house: one roof message, three value pillars, sourced proof, a foundation, and role and channel variants. Use when Marketing, Sales, and partners each tell a different story.
+- [`sales-value-narrative`](sales-value-narrative.zip): Build a sales value narrative: why change, why now, why us, value by buying-group role, objections, and a do-not-say list. Use when Sales or partners must explain value with claims they can defend.
+- [`buying-journey-enablement`](buying-journey-enablement.zip): Map how a buying group buys, then assign the enablement asset for each stage and role, for direct sales and partners. Use when Sales has a pile of assets and customers still stall.
 
 **Dollars**: Pricing and packaging
 
@@ -228,7 +265,12 @@ Take it to market, measure it, and retire it well.
 
 **Dashboard**: Measure outcomes after launch
 
-- _Coming: GAP: metrics review, outcome tracking (source: PM-Star launch metrics)_
+- [`launch-metrics`](launch-metrics.zip): Define launch success metrics, decision triggers, and 30/90/180-day reviews before launch. Use when you need to know early whether a launch is working and what you will do if it isn't.
+
+**Deepen**: Keep customers and grow them: activation and retention
+
+- [`activation-design`](activation-design.zip): Define the moment a new customer first gets real value, then design the shortest path to it. Use when trials stall, installs sit idle, or onboarding is a checklist nobody finishes.
+- [`retention-diagnostic-advisor`](retention-diagnostic-advisor.zip): Find why customers leave or go quiet, then pick the fix that fits. Use when churn or renewal numbers slipped and you need the cause before you launch a retention program.
 
 **Decommission**: Lifecycle plays through end of life
 
@@ -259,6 +301,11 @@ Drive your career and your stakeholders.
 - [`executive-onboarding-playbook`](executive-onboarding-playbook.zip): Plan a VP or CPO 30-60-90 day diagnostic onboarding path. Use when entering a new executive product role and avoiding premature change.
 - [`product-sense-interview-answer`](product-sense-interview-answer.zip): Structure a spoken PM product-sense answer with assumptions, segmentation, pain-point prioritization, and MVP tradeoffs. Use when practicing design, improve, or build-next interview questions.
 - [`vp-cpo-readiness-advisor`](vp-cpo-readiness-advisor.zip): Guide the transition to VP or CPO across preparing, interviewing, landing, and recalibrating. Use when executive product scope is changing fast.
+
+**Delineate**: Draw the lines: decision rights and the PM role
+
+- [`decision-rights-matrix`](decision-rights-matrix.zip): Define who decides, who is consulted, and who is told for key product decisions, with one accountable person each. Use when decisions stall, get reopened, or go to whoever pushes hardest.
+- [`pm-role-charter`](pm-role-charter.zip): Write a one-page charter for a PM role: what it owns, decides, influences, and is measured on. Use when expectations clash, scope creeps, or a PM is held accountable for things they can't control.
 
 ### Core (ships with every bundle)
 

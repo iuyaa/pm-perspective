@@ -1,12 +1,12 @@
 {
-  "checked_on": "2026-11-13",
+  "checked_on": "2026-11-14",
   "root": "../library",
   "sources": [
     {
       "id": "deanpeters",
       "url": "https://github.com/deanpeters/Product-Manager-Skills",
-      "commit": "d83fa8f02e2ea60d4d6f0dd5edefc51e1823ccdf",
-      "skill_count": 78,
+      "commit": "476ae12917b8e77609eb956bcc2203a4e4ec857d",
+      "skill_count": 95,
       "license": "CC-BY-NC-SA-4.0"
     },
     {
@@ -19,7 +19,7 @@
     {
       "id": "product-on-purpose",
       "url": "https://github.com/product-on-purpose/pm-skills",
-      "commit": "9b920db418c5bf641edea9afb4915a286e1d42ea",
+      "commit": "9465456271099cb4fb06f7566c881b8abf4b1a8e",
       "skill_count": 68,
       "license": "Apache-2.0"
     },

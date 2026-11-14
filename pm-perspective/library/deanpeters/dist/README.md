@@ -3,7 +3,7 @@
 Welcome. This folder is the **easy download shelf** for the library — no code, no
 terminal. Grab what you want, unzip it, and upload the skills to Claude.
 
-There are **78 skills** in total. Two ways to get them:
+There are **95 skills** in total. Two ways to get them:
 
 ## 1. Grab a bundle (recommended)
 
@@ -14,12 +14,12 @@ find upload-ready skill ZIPs inside.
 |---|---|
 | [`pm-skills-starter-pack.zip`](packages/pm-skills-starter-pack.zip) | Most PMs: a small, practical starter set |
 | [`pm-determine-pack.zip`](packages/pm-determine-pack.zip) | **Determine**: Set outcomes and read the terrain: strategy, finance, market, customers. 24 skills + shared helpers |
-| [`pm-discover-pack.zip`](packages/pm-discover-pack.zip) | **Discover**: Find and frame the real problem. 7 skills + shared helpers |
+| [`pm-discover-pack.zip`](packages/pm-discover-pack.zip) | **Discover**: Find and frame the real problem. 12 skills + shared helpers |
 | [`pm-define-pack.zip`](packages/pm-define-pack.zip) | **Define**: Shape a solution worth building and test the bet. 9 skills + shared helpers |
-| [`pm-develop-pack.zip`](packages/pm-develop-pack.zip) | **Develop**: Turn the chosen solution into buildable work. 13 skills + shared helpers |
-| [`pm-deliver-pack.zip`](packages/pm-deliver-pack.zip) | **Deliver**: Take it to market, measure it, and retire it well. 11 skills + shared helpers |
-| [`pm-drive-pack.zip`](packages/pm-drive-pack.zip) | **Drive**: Drive your career and your stakeholders. 9 skills + shared helpers |
-| [`99-all-skills-pack.zip`](packages/99-all-skills-pack.zip) | Everything — all 78 skills |
+| [`pm-develop-pack.zip`](packages/pm-develop-pack.zip) | **Develop**: Turn the chosen solution into buildable work. 16 skills + shared helpers |
+| [`pm-deliver-pack.zip`](packages/pm-deliver-pack.zip) | **Deliver**: Take it to market, measure it, and retire it well. 18 skills + shared helpers |
+| [`pm-drive-pack.zip`](packages/pm-drive-pack.zip) | **Drive**: Drive your career and your stakeholders. 11 skills + shared helpers |
+| [`99-all-skills-pack.zip`](packages/99-all-skills-pack.zip) | Everything — all 95 skills |
 | [`pm-skills-codex.zip`](packages/pm-skills-codex.zip) | OpenAI Codex users (`.agents/skills` + `AGENTS.md`) |
 
 ### The lifecycle bundles
@@ -31,20 +31,6 @@ phase, plus the shared helper skills, so it works on its own:
 → **Deliver** (take it to market, measure, retire). **Drive** runs under all five:
 your stakeholders and your career.
 
-<details>
-<summary>Older packs (still available, replaced by the bundles above)</summary>
-
-| Older pack | Best for |
-|---|---|
-| [`02-discovery-pack.zip`](packages/02-discovery-pack.zip) | Understanding customers, problems, and opportunities |
-| [`03-strategy-pack.zip`](packages/03-strategy-pack.zip) | Positioning, market thinking, product direction |
-| [`04-delivery-pack.zip`](packages/04-delivery-pack.zip) | Stories, epics, PRDs, roadmap execution |
-| [`05-ai-pm-pack.zip`](packages/05-ai-pm-pack.zip) | AI product work |
-| [`06-market-intel-pack.zip`](packages/06-market-intel-pack.zip) | Competitive and market intelligence |
-| [`07-lifecycle-eol-pack.zip`](packages/07-lifecycle-eol-pack.zip) | Extend, replace, or retire a product |
-
-</details>
-
 ## 2. Grab one skill at a time
 
 Every skill has its own ZIP right here in this folder. Browse them in
@@ -53,9 +39,12 @@ Every skill has its own ZIP right here in this folder. Browse them in
 ## How to install (Claude Desktop / Web)
 
 1. Download a bundle (or an individual skill ZIP).
-2. If it's a bundle, unzip it to reveal the individual skill ZIPs.
-3. In Claude, open **Skills** and upload the skill ZIP(s).
-4. Start asking better product questions.
+2. If it's a bundle, unzip it. Inside is a folder of smaller skill ZIPs.
+   **Don't upload the outer bundle ZIP to Claude.** Upload the skill ZIPs inside it.
+3. In Claude, open **Settings → Capabilities → Skills** and upload one or more skill ZIPs.
+4. Start a chat and paste: `Which of these skills fits what's on my desk this week?`
+   You'll know it worked when Claude names a skill and starts asking you questions.
+   Arriving empty-handed is fine; the skills ask for what they need.
 
 Full step-by-step guides live in [`../docs/`](../docs): `INSTALL-CLAUDE-DESKTOP.md`,
 `INSTALL-CLAUDE-CODE.md`, and `INSTALL-CODEX.md`.
